@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit, } from '@angular/core';
+import {Component, OnDestroy, OnInit,} from '@angular/core';
 
 @Component({
   selector: 'starter',
-  templateUrl: 'starter.template.html'
+  templateUrl: 'starterview.component.html'
 })
 export class StarterViewComponent implements OnDestroy, OnInit  {
 
