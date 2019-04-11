@@ -8,6 +8,10 @@ import {LoginComponent} from './login/login.component';
 import {PeityModule} from '../components/charts/peity';
 import {SparklineModule} from '../components/charts/sparkline';
 import {RegisterComponent} from './register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {LoginService} from '../services/login.service';
+import {AuthHttpService} from '../services/auth-http.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,10 +23,16 @@ import {RegisterComponent} from './register/register.component';
     BrowserModule,
     RouterModule,
     PeityModule,
-    SparklineModule
+    SparklineModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
   ],
+  providers: [
+    AuthHttpService,
+    LoginService
+  ]
 })
 
 export class AppviewsModule {

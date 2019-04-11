@@ -13,10 +13,12 @@ import {LoginComponent} from './views/login/login.component';
 import {BlankLayoutComponent} from './components/common/layouts/blankLayout.component';
 import {BasicLayoutComponent} from './components/common/layouts/basicLayout.component';
 import {TopNavigationLayoutComponent} from './components/common/layouts/topNavigationlayout.component';
+import {RegisterComponent} from './views/register/register.component';
 
 export const ROUTES:Routes = [
   // Main redirect
-  {path: '', component: LoginComponent },
+  { path: '', component: LoginComponent },
+  { path: 'register', component: RegisterComponent},
 
   // App views
   {
