@@ -2,16 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8bb2f3c-0842-46d6-89ba-00e1f23245ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/utiles/swal.utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/cap_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/images/logo_mini_white.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.template.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/userhome/userhome.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/userhome/userhome.component.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -74,19 +72,19 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="14" />
+          <entry key="HTML" value="16" />
           <entry key="JSON" value="1" />
-          <entry key="SCSS" value="4" />
-          <entry key="TypeScript" value="26" />
+          <entry key="SCSS" value="5" />
+          <entry key="TypeScript" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1439" />
+          <entry key="HTML" value="1591" />
           <entry key="JSON" value="15" />
-          <entry key="PLAIN_TEXT" value="298" />
-          <entry key="SCSS" value="109" />
-          <entry key="TypeScript" value="1781" />
+          <entry key="PLAIN_TEXT" value="368" />
+          <entry key="SCSS" value="124" />
+          <entry key="TypeScript" value="1819" />
         </counts>
       </usages-collector>
     </session>
@@ -94,37 +92,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.template.html">
+        <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/common/layouts/basicLayout.template.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+            <state relative-caret-position="180">
+              <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.html">
+        <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="40">
+              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.scss">
+        <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="180">
+              <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+              <folding>
+                <element signature="e#0#42#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -142,22 +134,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="800">
+              <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/utiles/swal.utils.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/components/common/layouts/basicLayout.template.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+            <state relative-caret-position="240">
+              <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -184,9 +173,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="100">
               <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -196,8 +182,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="SCSS File" />
         <option value="TypeScript File" />
+        <option value="SCSS File" />
       </list>
     </option>
   </component>
@@ -238,6 +224,10 @@
         <option value="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/swal.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/swal.utils.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.html" />
+        <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.scss" />
+        <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" />
       </list>
     </option>
   </component>
@@ -316,6 +306,15 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
               <item name="topnavbar" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -351,6 +350,19 @@
               <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
               <item name="FRONT" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="environments" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -364,7 +376,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555150793593" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555152112120" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -431,7 +443,7 @@
       <updated>1555000078170</updated>
       <workItem from="1555000079748" duration="1848000" />
       <workItem from="1555002010091" duration="6290000" />
-      <workItem from="1555141237689" duration="8146000" />
+      <workItem from="1555141237689" duration="9450000" />
     </task>
     <task id="LOCAL-00001" summary="Restructurados archivos. Página inicial en Login">
       <created>1555005564781</created>
@@ -461,11 +473,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555148595922</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Importado SweetAlerts y creado clase de utilidades para llamarlo.">
+      <created>1555150814092</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1555150814092</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16284000" />
+    <option name="totallyTimeSpent" value="17588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -552,7 +571,8 @@
     <MESSAGE value="Finalizada vista del login" />
     <MESSAGE value="Finalizado form del login y llamada al servicio." />
     <MESSAGE value="Eliminados componentes que no se iban a usar. Creado home y register." />
-    <option name="LAST_COMMIT_MESSAGE" value="Eliminados componentes que no se iban a usar. Creado home y register." />
+    <MESSAGE value="Importado SweetAlerts y creado clase de utilidades para llamarlo." />
+    <option name="LAST_COMMIT_MESSAGE" value="Importado SweetAlerts y creado clase de utilidades para llamarlo." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
@@ -737,23 +757,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
           <caret line="5" column="70" selection-start-line="5" selection-start-column="70" selection-end-line="5" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/common/layouts/basicLayout.template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -764,26 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -798,6 +781,64 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
           <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/layouts/basicLayout.template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="40" column="6" selection-start-line="40" selection-start-column="6" selection-end-line="40" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>

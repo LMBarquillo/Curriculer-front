@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import 'jquery-slimscroll';
 
@@ -6,7 +6,8 @@ declare var jQuery:any;
 
 @Component({
   selector: 'navigation',
-  templateUrl: 'navigation.template.html'
+  templateUrl: 'navigation.component.html',
+  styleUrls: ['navigation.component.scss']
 })
 
 export class NavigationComponent {
