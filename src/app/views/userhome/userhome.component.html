@@ -15,24 +15,20 @@
   </div>
 </div>
 
-<div class="wrapper wrapper-content animated fadeInRight">
+<div class="wrapper wrapper-content animated fadeInRight" *ngIf="userData">
   <div class="row m-b-lg m-t-lg">
     <div class="col-md-6">
 
       <div class="profile-image">
         <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
       </div>
-      <div class="profile-info">
+      <div class="profile-info" >
         <div class="">
           <div>
             <h2 class="no-margins">
-              Alex Smith
+              {{ userData.name + ' ' + userData.surname }}
             </h2>
-            <h4>Founder of Groupeq</h4>
-            <small>
-              There are many variations of passages of Lorem Ipsum available, but the majority
-              have suffered alteration in some form Ipsum available.
-            </small>
+            <h4>{{ userData.address }}</h4>
           </div>
         </div>
       </div>

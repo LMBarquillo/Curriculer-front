@@ -31,6 +31,7 @@ export class AuthHttpService {
       'Authorization': localStorage.getItem(USERDATA)
     });
 
+    console.log(headers);
     return params ? {headers: headers, params: params} : {headers};
   }
 

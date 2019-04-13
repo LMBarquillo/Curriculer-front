@@ -10,6 +10,7 @@ import {LoginService} from '../services/login.service';
 import {AuthHttpService} from '../services/auth-http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UserhomeComponent} from './userhome/userhome.component';
+import {UserService} from '../services/user.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {UserhomeComponent} from './userhome/userhome.component';
   ],
   providers: [
     AuthHttpService,
-    LoginService
+    LoginService,
+    UserService
   ]
 })
 

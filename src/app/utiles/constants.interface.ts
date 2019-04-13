@@ -6,4 +6,5 @@ const API: string = environment.api;
 export const USERDATA: string = 'CurriculerUserData';
 
 // EndPoints
-export const LOGIN: string = API + '/login';
+export const EP_LOGIN: string = API + '/login';
+export const EP_USER: string = API + '/user';

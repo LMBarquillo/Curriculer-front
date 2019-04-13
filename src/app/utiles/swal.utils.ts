@@ -35,4 +35,9 @@ export class Swal {
       confirmButtonText: 'Aceptar'
     });
   }
+
+  public static close() {
+    swal.close();
+  }
+
 }
