@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../services/login.service';
+import {UserBasicModel} from '../../models/common/user-basic.model';
+import {USERDATA} from '../../utiles/constants.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -12,7 +15,7 @@ export class LoginComponent implements OnInit {
   private badLogin: boolean = false;
   private loginForm: FormGroup;
 
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup(
@@ -21,7 +24,6 @@ export class LoginComponent implements OnInit {
         pass: new FormControl("", Validators.required)
       }
     );
-
   }
 
   public doLogin() {
@@ -30,9 +32,10 @@ export class LoginComponent implements OnInit {
       let user: string = this.loginForm.controls['user'].value;
       let pass: string = this.loginForm.controls['pass'].value;
       this.loginService.login(user, pass).subscribe(
-        (ok) => {
-          console.log(ok);
-        }, (err) => {
+        (ok: UserBasicModel) => {
+          localStorage.setItem(USERDATA, ok.user + '|' + ok.token);
+          this.router.navigate(['/home']);
+        }, () => {
           this.badLogin = true;
         }
       );
