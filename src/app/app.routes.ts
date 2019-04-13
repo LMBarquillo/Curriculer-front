@@ -17,8 +17,7 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'home', component: UserhomeComponent},
-      {path: '**', component: UserhomeComponent}
+      {path: 'home', component: UserhomeComponent}
     ]
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'}

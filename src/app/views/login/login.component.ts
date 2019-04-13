@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router) {}
 
   ngOnInit(): void {
+    if(localStorage.getItem(USERDATA)) {
+      this.router.navigate(['/home']);
+    }
     this.loginForm = new FormGroup(
       {
         user: new FormControl("", Validators.required),
