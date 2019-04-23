@@ -43,6 +43,7 @@ export class RegisterComponent implements OnInit {
   }
 
   public doRegister(): void {
+    this.registerError = "";
     this.validateForms = true;
     if(this.registerForm.valid) {
       this.loginService.register(this.getFormData()).subscribe(
@@ -50,8 +51,8 @@ export class RegisterComponent implements OnInit {
           localStorage.setItem(USERDATA, ok.user + '|' + ok.token);
           this.router.navigate(['/home']);
         }, err => {
-          console.log(err);
-          //this.registerError = err;
+          this.validateForms = false;
+          this.registerError = err.error.error;
         }
       );
     }

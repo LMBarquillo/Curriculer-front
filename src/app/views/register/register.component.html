@@ -45,6 +45,10 @@
         <p *ngIf="!emptyFields() && !registerForm.controls['email'].valid">El email no es correcto</p>
         <p *ngIf="!registerForm.controls['terms'].valid">Debe aceptar los términos y condiciones</p>
         <p *ngIf="!passForm.valid && passForm.controls['pass'].value.length > 0">Las contraseñas no coinciden</p>
+
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="registerError.length > 0">
+        <p>{{ registerError }}</p>
       </div>
 
       <p class="text-muted text-center"><small>&iquest;Ya tienes cuenta?</small></p>
