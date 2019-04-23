@@ -1,3 +1,54 @@
-<p>
-  register works!
-</p>
+<div class="middle-box text-center loginscreen animated fadeInDown">
+  <div>
+    <div>
+      <img class="logo" src="assets/images/logo.png" alt="Curriculer logo"/>
+    </div>
+    <h3>Regístrate en Curriculer</h3>
+    <p>Crea tu cuenta y comienza a editar tu curriculum.</p>
+
+    <form [formGroup]="registerForm" class="m-t" role="form">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre" formControlName="name"
+               [ngClass]="{'invalid': !registerForm.controls['name'].valid && validateForms}"/>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname"
+               [ngClass]="{'invalid': !registerForm.controls['surname'].valid && validateForms}"/>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" formControlName="email"
+               [ngClass]="{'invalid': !registerForm.controls['email'].valid && validateForms}"/>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="user"
+               [ngClass]="{'invalid': !registerForm.controls['user'].valid && validateForms}"/>
+      </div>
+      <div [formGroup]="passForm">
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Password" formControlName="pass"
+                 [ngClass]="{'invalid': !registerForm.controls['pass'].valid && validateForms}"/>
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" placeholder="Repite tu password" formControlName="passverify"
+                 [ngClass]="{'invalid': !passForm.controls['passverify'].valid && validateForms}"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="checkbox i-checks">
+          <label><input type="checkbox" formControlName="terms" /><i></i> Acepto los términos y condiciones </label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary block full-width m-b" (click)="doRegister()">Registrarme</button>
+
+      <div class="alert alert-danger" role="alert" *ngIf="validateForms && (!registerForm.valid || !passForm.valid)">
+        <p *ngIf="emptyFields()">Por favor, rellene todos los campos</p>
+        <p *ngIf="!emptyFields() && !registerForm.controls['email'].valid">El email no es correcto</p>
+        <p *ngIf="!registerForm.controls['terms'].valid">Debe aceptar los términos y condiciones</p>
+        <p *ngIf="!passForm.valid && passForm.controls['pass'].value.length > 0">Las contraseñas no coinciden</p>
+      </div>
+
+      <p class="text-muted text-center"><small>&iquest;Ya tienes cuenta?</small></p>
+      <a class="btn btn-sm btn-white btn-block" [routerLink]="['/login']">Identifícate</a>
+    </form>
+  </div>
+</div>

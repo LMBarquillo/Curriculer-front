@@ -5,7 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {PeityModule} from '../components/charts/peity';
 import {SparklineModule} from '../components/charts/sparkline';
 import {RegisterComponent} from './register/register.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {LoginService} from '../services/login.service';
 import {AuthHttpService} from '../services/auth-http.service';
 import {HttpClientModule} from '@angular/common/http';
@@ -24,7 +24,8 @@ import {UserService} from '../services/user.service';
     PeityModule,
     SparklineModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   exports: [
   ],
