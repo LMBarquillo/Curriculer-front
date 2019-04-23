@@ -1,6 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators,} from '@angular/forms';
 import {CustomValidators} from '../../utiles/validators.utils';
+import {RegisterModel} from '../../models/register.model';
+import {LoginService} from '../../services/login.service';
+import {USERDATA} from '../../utiles/constants.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -9,12 +13,19 @@ import {CustomValidators} from '../../utiles/validators.utils';
 })
 export class RegisterComponent implements OnInit {
   private validateForms: boolean = false;
+  public registerError: string = "";
   public registerForm: FormGroup;
   public passForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private loginService: LoginService,
+              private router: Router) { }
 
   ngOnInit() {
+    if(localStorage.getItem(USERDATA)) {
+      this.router.navigate(['/home']);
+    }
+
     this.passForm = this.formBuilder.group({
       pass: new FormControl("", Validators.required),
       passverify: new FormControl("", Validators.required)
@@ -34,8 +45,26 @@ export class RegisterComponent implements OnInit {
   public doRegister(): void {
     this.validateForms = true;
     if(this.registerForm.valid) {
-      console.log("ok");
+      this.loginService.register(this.getFormData()).subscribe(
+        ok => {
+          localStorage.setItem(USERDATA, ok.user + '|' + ok.token);
+          this.router.navigate(['/home']);
+        }, err => {
+          console.log(err);
+          //this.registerError = err;
+        }
+      );
     }
+  }
+
+  public getFormData(): RegisterModel {
+    return {
+      name: this.registerForm.controls['name'].value,
+      surname: this.registerForm.controls['surname'].value,
+      email: this.registerForm.controls['email'].value,
+      user: this.registerForm.controls['user'].value,
+      password: this.passForm.controls['pass'].value
+    };
   }
 
   public emptyFields(): boolean {
