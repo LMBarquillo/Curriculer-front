@@ -8,24 +8,24 @@
 
     <form [formGroup]="registerForm" class="m-t" role="form">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nombre" formControlName="name"
+        <input type="text" class="form-control" placeholder="Nombre" formControlName="name" maxlength="60"
                [ngClass]="{'invalid': !registerForm.controls['name'].valid && validateForms}"/>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname"
+        <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname" maxlength="100"
                [ngClass]="{'invalid': !registerForm.controls['surname'].valid && validateForms}"/>
       </div>
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" formControlName="email"
+        <input type="email" class="form-control" placeholder="Email" formControlName="email" maxlength="60"
                [ngClass]="{'invalid': !registerForm.controls['email'].valid && validateForms}"/>
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="user"
+        <input type="text" class="form-control" placeholder="Nombre de usuario" formControlName="user" maxlength="45"
                [ngClass]="{'invalid': !registerForm.controls['user'].valid && validateForms}"/>
       </div>
       <div [formGroup]="passForm">
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password" formControlName="pass"
+          <input type="password" class="form-control" placeholder="Password" formControlName="pass" maxlength="45"
                  [ngClass]="{'invalid': !registerForm.controls['pass'].valid && validateForms}"/>
         </div>
         <div class="form-group">

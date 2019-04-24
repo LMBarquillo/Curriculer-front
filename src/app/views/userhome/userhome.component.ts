@@ -11,22 +11,53 @@ import {Swal} from '../../utiles/swal.utils';
 export class UserhomeComponent implements OnInit {
   public userData: UserModel;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit() {
     this.loadUserData();
   }
 
   private loadUserData() {
-    Swal.buildSwallWithoutButtons('Cargando','Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>',"info");
+    Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     this.userService.getUserData().subscribe(
       (user: UserModel) => {
         this.userData = user;
         Swal.close();
       }, () => {
-        Swal.buildSwalWithoutCancel('Error','No se pudo obtener los datos del usuario.','error');
+        Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
       }
     );
+  }
+
+  public openFileLoader(): void {
+    let fileloader = document.getElementById('fileloader');
+    fileloader.click();
+  }
+
+  public loadImage(event): void {
+    let imageType = /image.*/;
+    let file = event.target.files[0];
+
+    if (file.type.match(imageType)) {
+      Swal.buildSwallWithoutButtons('Cargando', 'Actualizando avatar. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.userService.updateAvatar(reader.result).subscribe(
+          () => {
+            this.userData.picture = reader.result;
+            Swal.close();
+          }, (err) => {
+            console.log(err);
+            Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar el avatar del usuario.', 'error');
+          }
+        );
+      }
+    } else {
+      Swal.buildSwalWithoutCancel('Archivo incorrecto', 'Por favor, seleccione solo archivos de imagen', 'error');
+    }
   }
 
 }

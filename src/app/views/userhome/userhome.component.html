@@ -18,9 +18,13 @@
 <div class="wrapper wrapper-content animated fadeInRight" *ngIf="userData">
   <div class="row m-b-lg m-t-lg">
     <div class="col-md-6">
-
       <div class="profile-image">
-        <img src="img/a4.jpg" class="img-circle circle-border m-b-md" alt="profile">
+        <img src="assets/images/user.png" class="img-circle circle-border m-b-md" alt="profile" *ngIf="userData.picture.length == 0">
+        <img [src]="userData.picture" class="img-circle circle-border m-b-md" alt="profile" *ngIf="userData.picture.length > 0">
+        <div class="change-image" (click)="openFileLoader()">
+          <i class="fa fa-pencil"></i>
+        </div>
+        <input id="fileloader" type="file" style="display: none;" (change)="loadImage($event)" accept=".jpeg, .jpg" />
       </div>
       <div class="profile-info" >
         <div class="">
@@ -40,7 +44,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <h3>Tu formación</h3>
-
+          <div id="test"></div>
         </div>
       </div>
     </div>
