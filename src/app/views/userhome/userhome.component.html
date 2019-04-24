@@ -20,7 +20,7 @@
     <div class="col-md-6">
       <div class="profile-image">
         <img src="assets/images/user.png" class="img-circle circle-border m-b-md" alt="profile" *ngIf="userData.picture.length == 0">
-        <img [src]="userData.picture" class="img-circle circle-border m-b-md" alt="profile" *ngIf="userData.picture.length > 0">
+        <img [src]="userData.picture" class="m-b-md" alt="profile" *ngIf="userData.picture.length > 0">
         <div class="change-image" (click)="openFileLoader()">
           <i class="fa fa-pencil"></i>
         </div>

@@ -45,15 +45,19 @@ export class UserhomeComponent implements OnInit {
       reader.readAsDataURL(file);
 
       reader.onload = () => {
-        this.userService.updateAvatar(reader.result).subscribe(
-          () => {
-            this.userData.picture = reader.result;
-            Swal.close();
-          }, (err) => {
-            console.log(err);
-            Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar el avatar del usuario.', 'error');
-          }
-        );
+        if(reader.result.length <= 1000000) {
+          this.userService.updateAvatar(reader.result).subscribe(
+            () => {
+              this.userData.picture = reader.result;
+              Swal.close();
+            }, (err) => {
+              console.log(err);
+              Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar el avatar del usuario.', 'error');
+            }
+          );
+        } else {
+          Swal.buildSwalWithoutCancel('Imagen demasiado grande','Por favor, escoja otra imagen más pequeña','error');
+        }
       }
     } else {
       Swal.buildSwalWithoutCancel('Archivo incorrecto', 'Por favor, seleccione solo archivos de imagen', 'error');
