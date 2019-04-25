@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {UserModel} from '../../models/user.model';
 import {Swal} from '../../utiles/swal.utils';
+import {Formats} from '../../utiles/formats.utils';
 
 @Component({
   selector: 'app-userhome',
@@ -28,6 +29,10 @@ export class UserhomeComponent implements OnInit {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
       }
     );
+  }
+
+  public getBirthDate(): string {
+    return Formats.formatDate(this.userData.birthdate);
   }
 
   public openFileLoader(): void {

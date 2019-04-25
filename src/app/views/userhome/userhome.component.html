@@ -29,10 +29,11 @@
       <div class="profile-info" >
         <div class="">
           <div>
-            <h2 class="no-margins">
+            <h2 class="no-margin-top">
               {{ userData.name + ' ' + userData.surname }}
             </h2>
-            <h4>{{ userData.address }}</h4>
+            <h4>{{ userData.address }} - {{ userData.city }}</h4>
+            <h4>{{ getBirthDate() }}</h4>
           </div>
         </div>
       </div>
@@ -44,7 +45,7 @@
       <div class="ibox">
         <div class="ibox-content">
           <h3>Tu formación</h3>
-          <div id="test"></div>
+
         </div>
       </div>
     </div>
