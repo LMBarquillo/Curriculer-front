@@ -11,6 +11,7 @@ import {AuthHttpService} from '../services/auth-http.service';
 import {HttpClientModule} from '@angular/common/http';
 import {UserhomeComponent} from './userhome/userhome.component';
 import {UserService} from '../services/user.service';
+import {TrainingsService} from '../services/trainings.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {UserService} from '../services/user.service';
   providers: [
     AuthHttpService,
     LoginService,
-    UserService
+    UserService,
+    TrainingsService
   ]
 })
 

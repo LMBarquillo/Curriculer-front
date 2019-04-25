@@ -3,6 +3,11 @@ import {UserService} from '../../services/user.service';
 import {UserModel} from '../../models/user.model';
 import {Swal} from '../../utiles/swal.utils';
 import {Formats} from '../../utiles/formats.utils';
+import {forkJoin} from 'rxjs/observable/forkJoin';
+import {TrainingsService} from '../../services/trainings.service';
+import {TrainingModel} from '../../models/training.model';
+import {catchError} from 'rxjs/operators';
+import {Utilities} from '../../utiles/utilities.utils';
 
 @Component({
   selector: 'app-userhome',
@@ -11,8 +16,10 @@ import {Formats} from '../../utiles/formats.utils';
 })
 export class UserhomeComponent implements OnInit {
   public userData: UserModel;
+  public trainings: TrainingModel[];
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private trainingService: TrainingsService) {
   }
 
   ngOnInit() {
@@ -21,9 +28,11 @@ export class UserhomeComponent implements OnInit {
 
   private loadUserData() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
-    this.userService.getUserData().subscribe(
-      (user: UserModel) => {
+    forkJoin(this.userService.getUserData(),
+             this.trainingService.getTrainings().pipe(catchError(() => []))).subscribe(
+      ([user, trainings]) => {
         this.userData = user;
+        this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
         Swal.close();
       }, () => {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');

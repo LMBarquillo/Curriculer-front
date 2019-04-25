@@ -20,3 +20,24 @@
 .no-margin-top {
   margin-top: 0;
 }
+.promotion {
+  text-align: right;
+  position: relative;
+  padding-top: 30px;
+
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    width: 30px;
+    text-align: center;
+    border-top: 1px solid #e7eaec;
+    border-bottom: 1px solid #e7eaec;
+    border-left: 1px solid #e7eaec;
+    background: #f8f8f8;
+  }
+}
+.timeline-item .content:hover {
+  background: transparent;
+}
