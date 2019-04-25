@@ -8,6 +8,8 @@ import {TrainingsService} from '../../services/trainings.service';
 import {TrainingModel} from '../../models/training.model';
 import {catchError} from 'rxjs/operators';
 import {Utilities} from '../../utiles/utilities.utils';
+import {JobService} from '../../services/job.service';
+import {JobModel} from '../../models/job.model';
 
 @Component({
   selector: 'app-userhome',
@@ -16,10 +18,12 @@ import {Utilities} from '../../utiles/utilities.utils';
 })
 export class UserhomeComponent implements OnInit {
   public userData: UserModel;
-  public trainings: TrainingModel[];
+  public trainings: TrainingModel[] = [];
+  public jobs: JobModel[] = [];
 
   constructor(private userService: UserService,
-              private trainingService: TrainingsService) {
+              private trainingService: TrainingsService,
+              private jobService: JobService) {
   }
 
   ngOnInit() {
@@ -29,10 +33,13 @@ export class UserhomeComponent implements OnInit {
   private loadUserData() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     forkJoin(this.userService.getUserData(),
-             this.trainingService.getTrainings().pipe(catchError(() => []))).subscribe(
-      ([user, trainings]) => {
+             this.trainingService.getTrainings().pipe(catchError(() => [])),
+             this.jobService.getJobs().pipe(catchError(() => []))).subscribe(
+      ([user, trainings, jobs]) => {
         this.userData = user;
         this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
+        this.jobs = jobs.sort((a, b) => Utilities.compare(a.from, b.from, true));
+        console.log(jobs);
         Swal.close();
       }, () => {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
@@ -40,8 +47,8 @@ export class UserhomeComponent implements OnInit {
     );
   }
 
-  public getBirthDate(): string {
-    return Formats.formatDate(this.userData.birthdate);
+  public getDate(date: string): string {
+    return Formats.formatDate(date);
   }
 
   public openFileLoader(): void {
