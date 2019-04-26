@@ -146,10 +146,45 @@
     </div>
     <div class="col-lg-3">
       <div class="ibox">
-        <div class="ibox-content">
+        <div class="ibox-content inspinia-timeline">
           <h3>Habilidades</h3>
           <hr/>
 
+          <h4>Competencias digitales</h4>
+          <div class="alert alert-danger" role="alert" *ngIf="!digitalSkills">
+            <h4 class="alert-heading">No has añadido competencias digitales</h4>
+            <p>Dirígete al apartado de "Habilidades" para añadir tus competencias de ámbito tecnológico.</p>
+          </div>
+
+          <div class="timeline-item" *ngIf="digitalSkills">
+            <div class="row">
+              <div class="col-xs-2 year-column">
+                <i class="fa fa-laptop"></i>
+              </div>
+              <div class="col-xs-10 content no-top-border">
+                <p>Niveles de habilidad:</p>
+                <ul>
+                  <li>
+                    <small>Tratamiento de la información: Nivel {{ digitalSkills.processing.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Comunicación: Nivel {{ digitalSkills.communication.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Creación de contenidos: Nivel {{ digitalSkills.contents.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Seguridad: Nivel {{ digitalSkills.safety.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Resolución de problemas: Nivel {{ digitalSkills.solving.grade }}</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h4>Otras habilidades</h4>
 
         </div>
       </div>

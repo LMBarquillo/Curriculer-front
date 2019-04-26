@@ -14,6 +14,7 @@ import {UserService} from '../services/user.service';
 import {TrainingsService} from '../services/trainings.service';
 import {JobsService} from '../services/jobs.service';
 import {LanguagesService} from '../services/languages.service';
+import {SkillsService} from '../services/skills.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {LanguagesService} from '../services/languages.service';
     UserService,
     TrainingsService,
     JobsService,
-    LanguagesService
+    LanguagesService,
+    SkillsService
   ]
 })
 

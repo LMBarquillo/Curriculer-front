@@ -12,6 +12,8 @@ import {JobsService} from '../../services/jobs.service';
 import {JobModel} from '../../models/job.model';
 import {LanguagesService} from '../../services/languages.service';
 import {LanguageModel} from '../../models/language.model';
+import {SkillsService} from '../../services/skills.service';
+import {DigitalSkillModel} from '../../models/digital-skill.model';
 
 @Component({
   selector: 'app-userhome',
@@ -23,11 +25,13 @@ export class UserhomeComponent implements OnInit {
   public trainings: TrainingModel[] = [];
   public jobs: JobModel[] = [];
   public languages: LanguageModel[] = [];
+  public digitalSkills: DigitalSkillModel;
 
   constructor(private userService: UserService,
               private trainingService: TrainingsService,
               private jobService: JobsService,
-              private languageService: LanguagesService) {
+              private languageService: LanguagesService,
+              private skillService: SkillsService) {
   }
 
   ngOnInit() {
@@ -39,13 +43,14 @@ export class UserhomeComponent implements OnInit {
     forkJoin(this.userService.getUserData(),
              this.trainingService.getTrainings().pipe(catchError(() => [])),
              this.jobService.getJobs().pipe(catchError(() => [])),
-             this.languageService.getLanguages()).subscribe(
-      ([user, trainings, jobs, languages]) => {
+             this.languageService.getLanguages().pipe(catchError(() => [])),
+             this.skillService.getDigitalSkills().pipe(catchError(() => []))).subscribe(
+      ([user, trainings, jobs, languages, digitalSkills]) => {
         this.userData = user;
         this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
         this.jobs = jobs.sort((a, b) => Utilities.compare(a.from, b.from, true));
-        console.log(languages);
         this.languages = languages;
+        this.digitalSkills = digitalSkills;
         Swal.close();
       }, () => {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
