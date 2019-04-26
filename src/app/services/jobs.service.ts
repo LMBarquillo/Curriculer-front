@@ -5,7 +5,7 @@ import {JobModel} from '../models/job.model';
 import {EP_JOBS} from '../utiles/constants.interface';
 
 @Injectable()
-export class JobService {
+export class JobsService {
 
   constructor(private http: AuthHttpService) { }
 

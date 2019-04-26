@@ -12,7 +12,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {UserhomeComponent} from './userhome/userhome.component';
 import {UserService} from '../services/user.service';
 import {TrainingsService} from '../services/trainings.service';
-import {JobService} from '../services/job.service';
+import {JobsService} from '../services/jobs.service';
+import {LanguagesService} from '../services/languages.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {JobService} from '../services/job.service';
     LoginService,
     UserService,
     TrainingsService,
-    JobService
+    JobsService,
+    LanguagesService
   ]
 })
 

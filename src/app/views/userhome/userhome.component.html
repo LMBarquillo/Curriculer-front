@@ -97,13 +97,49 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
     <div class="col-lg-3">
       <div class="ibox">
-        <div class="ibox-content">
+        <div class="ibox-content inspinia-timeline">
           <h3>Idiomas</h3>
+          <hr/>
+
+          <div class="alert alert-danger" role="alert" *ngIf="languages.length == 0">
+            <h4 class="alert-heading">No has añadido conocimiento de idiomas</h4>
+            <p>Dirígete al apartado de "Idiomas" para reflejar aquellos que dominas, además de tu idioma materno.</p>
+          </div>
+
+          <div class="timeline-item" *ngFor="let lang of languages">
+            <div class="row">
+              <div class="col-xs-2 year-column">
+                <i class="fa fa-comments-o"></i>
+              </div>
+              <div class="col-xs-10 content no-top-border">
+                <p class="m-b-xs"><strong>{{ lang.language }}</strong></p>
+                <p>Niveles de habilidad:</p>
+                <ul>
+                  <li>
+                    <small>Comprensión: {{ lang.listening.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Lectura: {{ lang.reading.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Escritura: {{ lang.writing.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Conversación: {{ lang.interaction.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Desarrollo: {{ lang.production.grade }}</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -112,6 +148,8 @@
       <div class="ibox">
         <div class="ibox-content">
           <h3>Habilidades</h3>
+          <hr/>
+
 
         </div>
       </div>
