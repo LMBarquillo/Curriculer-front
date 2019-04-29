@@ -185,7 +185,16 @@
           </div>
 
           <h4>Otras habilidades</h4>
+          <div class="alert alert-danger" role="alert" *ngIf="otherSkills.length == 0">
+            <h4 class="alert-heading">No has añadido tus habilidades</h4>
+            <p>Dirígete al apartado de "Habilidades" para añadir tus habilidades adicionales.</p>
+          </div>
 
+          <ul>
+            <li *ngFor="let skill of otherSkills">
+              <small>{{ skill.skill }}</small>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

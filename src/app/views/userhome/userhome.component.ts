@@ -14,6 +14,7 @@ import {LanguagesService} from '../../services/languages.service';
 import {LanguageModel} from '../../models/language.model';
 import {SkillsService} from '../../services/skills.service';
 import {DigitalSkillModel} from '../../models/digital-skill.model';
+import {SkillModel} from '../../models/skill.model';
 
 @Component({
   selector: 'app-userhome',
@@ -26,6 +27,7 @@ export class UserhomeComponent implements OnInit {
   public jobs: JobModel[] = [];
   public languages: LanguageModel[] = [];
   public digitalSkills: DigitalSkillModel;
+  public otherSkills: SkillModel[] = [];
 
   constructor(private userService: UserService,
               private trainingService: TrainingsService,
@@ -44,13 +46,15 @@ export class UserhomeComponent implements OnInit {
              this.trainingService.getTrainings().pipe(catchError(() => [])),
              this.jobService.getJobs().pipe(catchError(() => [])),
              this.languageService.getLanguages().pipe(catchError(() => [])),
-             this.skillService.getDigitalSkills().pipe(catchError(() => []))).subscribe(
-      ([user, trainings, jobs, languages, digitalSkills]) => {
+             this.skillService.getDigitalSkills().pipe(catchError(() => [])),
+             this.skillService.getOtherSkills().pipe(catchError(() => []))).subscribe(
+      ([user, trainings, jobs, languages, digitalSkills, otherSkills]) => {
         this.userData = user;
         this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
         this.jobs = jobs.sort((a, b) => Utilities.compare(a.from, b.from, true));
         this.languages = languages;
         this.digitalSkills = digitalSkills;
+        this.otherSkills = otherSkills;
         Swal.close();
       }, () => {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
