@@ -29,6 +29,9 @@
       <div class="profile-info">
         <h2 class="no-margin-top">
           {{ userData.name + ' ' + userData.surname }}
+          <button class="btn btn-default btn-mini-edit" (click)="userInfoModal = true">
+            <i class="fa fa-pencil"></i>
+          </button>
         </h2>
         <h4>{{ userData.address }} - {{ userData.city }}</h4>
         <h4>{{ getDate(userData.birthdate) }}</h4>
@@ -201,6 +204,26 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="userInfoModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="userInfoModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos del usuario</h3>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Guardar cambios</button>
       </div>
     </div>
   </div>

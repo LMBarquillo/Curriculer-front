@@ -29,6 +29,8 @@ export class UserhomeComponent implements OnInit {
   public digitalSkills: DigitalSkillModel;
   public otherSkills: SkillModel[] = [];
 
+  public userInfoModal: boolean = false;
+
   constructor(private userService: UserService,
               private trainingService: TrainingsService,
               private jobService: JobsService,
