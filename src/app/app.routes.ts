@@ -4,6 +4,10 @@ import {BlankLayoutComponent} from './components/common/layouts/blankLayout.comp
 import {BasicLayoutComponent} from './components/common/layouts/basicLayout.component';
 import {RegisterComponent} from './views/register/register.component';
 import {UserhomeComponent} from './views/userhome/userhome.component';
+import {TrainingComponent} from './views/training/training.component';
+import {JobsComponent} from './views/jobs/jobs.component';
+import {LanguagesComponent} from './views/languages/languages.component';
+import {SkillsComponent} from './views/skills/skills.component';
 
 export const ROUTES: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -17,7 +21,11 @@ export const ROUTES: Routes = [
   {
     path: '', component: BasicLayoutComponent,
     children: [
-      {path: 'home', component: UserhomeComponent}
+      {path: 'home', component: UserhomeComponent},
+      {path: 'training', component: TrainingComponent},
+      {path: 'jobs', component: JobsComponent},
+      {path: 'languages', component: LanguagesComponent},
+      {path: 'skills', component: SkillsComponent}
     ]
   },
   {path: '**', redirectTo: 'login', pathMatch: 'full'}

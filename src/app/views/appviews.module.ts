@@ -15,12 +15,20 @@ import {TrainingsService} from '../services/trainings.service';
 import {JobsService} from '../services/jobs.service';
 import {LanguagesService} from '../services/languages.service';
 import {SkillsService} from '../services/skills.service';
+import {TrainingComponent} from './training/training.component';
+import {JobsComponent} from './jobs/jobs.component';
+import {LanguagesComponent} from './languages/languages.component';
+import {SkillsComponent} from './skills/skills.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    TrainingComponent,
+    JobsComponent,
+    LanguagesComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,
