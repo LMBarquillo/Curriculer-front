@@ -66,6 +66,10 @@ export class UserhomeComponent implements OnInit {
     return Formats.formatDate(date);
   }
 
+  public getUser(): string {
+    return Utilities.getUser();
+  }
+
   public openFileLoader(): void {
     let fileloader = document.getElementById('fileloader');
     fileloader.click();
