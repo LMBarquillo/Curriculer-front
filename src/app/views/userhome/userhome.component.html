@@ -19,8 +19,8 @@
   <div class="row m-b-lg m-t-lg">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="profile-image">
-        <img src="assets/images/user.png" class="img-circle circle-border m-b-md" alt="profile" *ngIf="userData.picture.length == 0">
-        <img [src]="userData.picture" class="m-b-md" alt="profile" *ngIf="userData.picture.length > 0">
+        <img src="assets/images/user.png" class="img-circle circle-border m-b-md" alt="profile" *ngIf="!userData.picture || userData.picture?.length == 0">
+        <img [src]="userData.picture" class="m-b-md" alt="profile" *ngIf="userData.picture?.length > 0">
         <div class="change-image" (click)="openFileLoader()">
           <i class="fa fa-pencil"></i>
         </div>

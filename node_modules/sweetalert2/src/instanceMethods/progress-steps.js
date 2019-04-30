@@ -1,5 +1,5 @@
 import * as dom from '../utils/dom/index.js'
-import { renderProgressSteps } from '../utils/dom/renderers/renderProgressSteps'
+import { renderProgressSteps } from '../utils/dom/renderers/renderProgressSteps.js'
 import privateProps from '../privateProps.js'
 import { warnAboutDepreation } from '../utils/utils.js';
 
@@ -13,8 +13,8 @@ export function setProgressSteps (progressSteps) {
   warnAboutDepreation('Swal.setProgressSteps()', 'Swal.update()')
   const innerParams = privateProps.innerParams.get(this)
   const updatedParams = Object.assign({}, innerParams, { progressSteps })
+  renderProgressSteps(this, updatedParams)
   privateProps.innerParams.set(this, updatedParams)
-  renderProgressSteps(updatedParams)
 }
 
 export function showProgressSteps () {

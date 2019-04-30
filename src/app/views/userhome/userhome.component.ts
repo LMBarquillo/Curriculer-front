@@ -18,6 +18,7 @@ import {SkillModel} from '../../models/skill.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../utiles/validators.utils';
 import {BS_CONFIG} from '../../utiles/constants.interface';
+import {of} from 'rxjs/observable/of';
 
 @Component({
   selector: 'app-userhome',
@@ -50,11 +51,11 @@ export class UserhomeComponent implements OnInit {
   private loadUserData() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     forkJoin(this.userService.getUserData(),
-             this.trainingService.getTrainings().pipe(catchError(() => [])),
-             this.jobService.getJobs().pipe(catchError(() => [])),
-             this.languageService.getLanguages().pipe(catchError(() => [])),
-             this.skillService.getDigitalSkills().pipe(catchError(() => [])),
-             this.skillService.getOtherSkills().pipe(catchError(() => []))).subscribe(
+             this.trainingService.getTrainings(),
+             this.jobService.getJobs(),
+             this.languageService.getLanguages(),
+             this.skillService.getDigitalSkills().pipe(catchError(() => of(null))),
+             this.skillService.getOtherSkills()).subscribe(
       ([user, trainings, jobs, languages, digitalSkills, otherSkills]) => {
         this.userData = user;
         this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
@@ -63,18 +64,22 @@ export class UserhomeComponent implements OnInit {
         this.digitalSkills = digitalSkills;
         this.otherSkills = otherSkills;
 
+        // en registro: Nombre, apellidos, email, user y password
         this.userForm = new FormGroup(
           {
             name: new FormControl(this.userData.name, Validators.required),
             surname: new FormControl(this.userData.surname, Validators.required),
-            address: new FormControl(this.userData.address, Validators.required),
-            city: new FormControl(this.userData.city, Validators.required),
-            email: new FormControl(this.userData.email, CustomValidators.checkMail),
-            birthdate: new FormControl(this.userData.birthdate, CustomValidators.checkDate)
+            address: new FormControl(this.userData.address),
+            city: new FormControl(this.userData.city),
+            email: new FormControl(this.userData.email, [Validators.required, CustomValidators.checkMail]),
+            nationality: new FormControl(this.userData.nationality ? this.userData.nationality : ""),
+            birthdate: new FormControl(this.userData.birthdate ? this.userData.birthdate : "", CustomValidators.checkDate),
+            drivingLicense: new FormControl(this.userData.drivingLicense ? this.userData.drivingLicense : "")
           }
         );
         Swal.close();
-      }, () => {
+      }, err => {
+        console.log(err);
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
       }
     );
