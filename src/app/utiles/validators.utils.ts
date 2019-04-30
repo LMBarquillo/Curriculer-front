@@ -1,4 +1,5 @@
 import {FormControl, FormGroup} from '@angular/forms';
+import * as moment from 'moment';
 
 export class CustomValidators {
   public static passwordVerifier(form: FormGroup) {
@@ -20,5 +21,9 @@ export class CustomValidators {
       result = null;
     }
     return result;
+  }
+
+  public static checkDate(control: FormControl) {
+    return moment(control.value, 'DD/MM/YYYY').isValid() ? null : { dateValid: false};
   }
 }

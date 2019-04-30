@@ -220,7 +220,24 @@
         <h3 class="modal-title">Editar datos del usuario</h3>
       </div>
       <div class="modal-body">
+        <form role="form" [formGroup]="userForm">
+          <div class="form-group">
+            <label>Nombre:</label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
+            <label>Apellidos:</label>
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname">
+            <label>Dirección:</label>
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="address">
+            <label>Ciudad:</label>
+            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city">
+            <label>E-mail:</label>
+            <input type="text" class="form-control" placeholder="E-mail" formControlName="email">
+            <label>Fecha de nacimiento</label>
+            <input type="text" class="form-control" placeholder="Datepicker" formControlName="birthdate" bsDatepicker
+                   [bsConfig]="bsConfig">
+          </div>
 
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Guardar cambios</button>

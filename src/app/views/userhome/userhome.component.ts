@@ -15,6 +15,9 @@ import {LanguageModel} from '../../models/language.model';
 import {SkillsService} from '../../services/skills.service';
 import {DigitalSkillModel} from '../../models/digital-skill.model';
 import {SkillModel} from '../../models/skill.model';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CustomValidators} from '../../utiles/validators.utils';
+import {BS_CONFIG} from '../../utiles/constants.interface';
 
 @Component({
   selector: 'app-userhome',
@@ -28,6 +31,8 @@ export class UserhomeComponent implements OnInit {
   public languages: LanguageModel[] = [];
   public digitalSkills: DigitalSkillModel;
   public otherSkills: SkillModel[] = [];
+  public userForm: FormGroup;
+  public bsConfig = BS_CONFIG;
 
   public userInfoModal: boolean = false;
 
@@ -57,6 +62,17 @@ export class UserhomeComponent implements OnInit {
         this.languages = languages;
         this.digitalSkills = digitalSkills;
         this.otherSkills = otherSkills;
+
+        this.userForm = new FormGroup(
+          {
+            name: new FormControl(this.userData.name, Validators.required),
+            surname: new FormControl(this.userData.surname, Validators.required),
+            address: new FormControl(this.userData.address, Validators.required),
+            city: new FormControl(this.userData.city, Validators.required),
+            email: new FormControl(this.userData.email, CustomValidators.checkMail),
+            birthdate: new FormControl(this.userData.birthdate, CustomValidators.checkDate)
+          }
+        );
         Swal.close();
       }, () => {
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');

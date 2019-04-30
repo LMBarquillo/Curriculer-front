@@ -66,3 +66,7 @@
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
 }
+
+bs-datepicker-container {
+  z-index: 5000;
+}

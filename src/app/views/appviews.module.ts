@@ -19,6 +19,7 @@ import {TrainingComponent} from './training/training.component';
 import {JobsComponent} from './jobs/jobs.component';
 import {LanguagesComponent} from './languages/languages.component';
 import {SkillsComponent} from './skills/skills.component';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import {SkillsComponent} from './skills/skills.component';
     SparklineModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BsDatepickerModule.forRoot()
   ],
   exports: [
   ],
