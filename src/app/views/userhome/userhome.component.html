@@ -222,25 +222,26 @@
       <div class="modal-body">
         <form role="form" [formGroup]="userForm">
           <div class="form-group">
-            <label>Nombre:</label>
-            <input type="text" class="form-control" placeholder="Nombre" formControlName="name">
-            <label>Apellidos:</label>
-            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname">
+            <label>Nombre: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="name" [ngClass]="{'invalid':!userForm.controls['name'].valid}">
+            <label>Apellidos: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname" [ngClass]="{'invalid':!userForm.controls['surname'].valid}">
             <label>Dirección:</label>
-            <input type="text" class="form-control" placeholder="Dirección" formControlName="address">
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="address" [ngClass]="{'invalid':!userForm.controls['address'].valid}">
             <label>Ciudad:</label>
-            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city">
-            <label>E-mail:</label>
-            <input type="text" class="form-control" placeholder="E-mail" formControlName="email">
-            <label>Fecha de nacimiento</label>
+            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city" [ngClass]="{'invalid':!userForm.controls['city'].valid}">
+            <label>E-mail: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="E-mail" formControlName="email" [ngClass]="{'invalid':!userForm.controls['email'].valid}">
+            <label>Nacionalidad: </label>
+            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality" [ngClass]="{'invalid':!userForm.controls['nationality'].valid}">
+            <label>Fecha de nacimiento: <em>*</em></label>
             <input type="text" class="form-control" placeholder="Datepicker" formControlName="birthdate" bsDatepicker
-                   [bsConfig]="bsConfig">
+                   [bsConfig]="bsConfig" [ngClass]="{'invalid':!userForm.controls['birthdate'].valid}">
           </div>
-
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" [disabled]="!userForm.valid" (click)="saveProfile()">Guardar cambios</button>
       </div>
     </div>
   </div>

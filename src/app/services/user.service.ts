@@ -16,4 +16,8 @@ export class UserService {
   public updateAvatar(image: string): Observable<UserModel> {
     return this.authHttp.put(EP_AVATAR, image);
   }
+
+  public updateUserData(data: UserModel): Observable<UserModel> {
+    return this.authHttp.put(EP_USER, data);
+  }
 }

@@ -64,7 +64,6 @@ export class UserhomeComponent implements OnInit {
         this.digitalSkills = digitalSkills;
         this.otherSkills = otherSkills;
 
-        // en registro: Nombre, apellidos, email, user y password
         this.userForm = new FormGroup(
           {
             name: new FormControl(this.userData.name, Validators.required),
@@ -72,15 +71,38 @@ export class UserhomeComponent implements OnInit {
             address: new FormControl(this.userData.address),
             city: new FormControl(this.userData.city),
             email: new FormControl(this.userData.email, [Validators.required, CustomValidators.checkMail]),
-            nationality: new FormControl(this.userData.nationality ? this.userData.nationality : ""),
-            birthdate: new FormControl(this.userData.birthdate ? this.userData.birthdate : "", CustomValidators.checkDate),
-            drivingLicense: new FormControl(this.userData.drivingLicense ? this.userData.drivingLicense : "")
+            nationality: new FormControl(this.userData.nationality),
+            birthdate: new FormControl(this.userData.birthdate ? this.getDate(this.userData.birthdate) : "", CustomValidators.checkDate)
           }
         );
         Swal.close();
       }, err => {
         console.log(err);
         Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
+      }
+    );
+  }
+
+  public saveProfile(): void {
+    let userModel: UserModel =  {
+      name: this.userForm.controls['name'].value,
+      surname: this.userForm.controls['surname'].value,
+      address: this.userForm.controls['address'].value,
+      city: this.userForm.controls['city'].value,
+      email: this.userForm.controls['email'].value,
+      nationality: this.userForm.controls['nationality'].value,
+      birthdate: new Date(this.userForm.controls['birthdate'].value),
+      picture: this.userData.picture,
+      id: this.userData.id
+    };
+    this.userInfoModal = false;
+    this.userService.updateUserData(userModel).subscribe(
+      ok => {
+        this.userData = ok;
+        Swal.buildSwalWithoutCancel('Usuario actualizado', 'Los datos se actualizaron correctamente.', 'success');
+      }, err => {
+        console.log(err);
+        Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar los datos del usuario.', 'error');
       }
     );
   }

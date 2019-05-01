@@ -8,5 +8,4 @@ export interface UserModel {
   birthdate: any;
   nationality: string;
   picture: string;
-  drivingLicense: string;
 }
