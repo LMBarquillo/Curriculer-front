@@ -11,7 +11,7 @@ export class CustomValidators {
     return null;
   }
 
-  public static checkMail(control: FormControl) {
+  public static isValidEmail(control: FormControl) {
     let result = null;
     let regex: RegExp = RegExp('^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$');
     if (!regex.test(control.value)) {
@@ -23,7 +23,25 @@ export class CustomValidators {
     return result;
   }
 
-  public static checkDate(control: FormControl) {
+  public static isValidDate(control: FormControl) {
     return moment(control.value, 'DD/MM/YYYY').isValid() ? null : { dateValid: false};
+  }
+
+  public static isIntegerNumber(formControl: FormControl) {
+    return new RegExp('^\\d+$').test(formControl.value)
+      ? null
+      : {'invalidNumber': {value: formControl.value}};
+  }
+
+  public static isDecimalNumber(formControl: FormControl) {
+    return new RegExp(/^\d+([\\.,]\d+)?$/).test(formControl.value)
+      ? null
+      : {'invalidNumber': {value: formControl.value}};
+  }
+
+  public static isValidYear(formControl: FormControl) {
+    return new RegExp('^\\d{4}$').test(formControl.value) && parseInt(formControl.value) >= 1900 && parseInt(formControl.value) <= new Date().getFullYear()
+      ? null
+      : {'invalidNumber': {value: formControl.value}};
   }
 }

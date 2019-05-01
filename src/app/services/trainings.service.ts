@@ -21,8 +21,8 @@ export class TrainingsService {
     return this.http.put(EP_TRAININGS, model);
   }
 
-  public deleteTraining(id: number): Observable<void> {
-    return this.http.delete(EP_TRAININGS + '?id=' + id);
+  public deleteTraining(id: number): Observable<number> {
+    return this.http.delete(EP_TRAININGS + '/' + id);
   }
 
 }

@@ -70,9 +70,9 @@ export class UserhomeComponent implements OnInit {
             surname: new FormControl(this.userData.surname, Validators.required),
             address: new FormControl(this.userData.address),
             city: new FormControl(this.userData.city),
-            email: new FormControl(this.userData.email, [Validators.required, CustomValidators.checkMail]),
+            email: new FormControl(this.userData.email, [Validators.required, CustomValidators.isValidEmail]),
             nationality: new FormControl(this.userData.nationality),
-            birthdate: new FormControl(this.userData.birthdate ? this.getDate(this.userData.birthdate) : "", CustomValidators.checkDate)
+            birthdate: new FormControl(this.userData.birthdate ? this.getDate(this.userData.birthdate) : "", CustomValidators.isValidDate)
           }
         );
         Swal.close();

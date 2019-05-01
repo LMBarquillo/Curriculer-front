@@ -18,7 +18,7 @@
 <div class="toolbar">
   <div class="toolbar-content">
     <div class="icon-advise" *ngIf="trainings.length == 0"><i class="fa fa-arrow-right swinging"></i></div>
-    <div class="btn btn-primary"><i class="fa fa-plus"></i> Añadir formación</div>
+    <div class="btn btn-primary" (click)="addTraining()"><i class="fa fa-plus"></i> Añadir formación</div>
   </div>
 </div>
 
@@ -41,13 +41,48 @@
             <h2>{{ training.qualification }}</h2>
             <h3>{{ training.center }}</h3>
             <p>{{ training.city}}</p>
-            <button class="btn btn-sm btn-danger"><i class="fa fa-times"></i></button>
-            <button class="btn btn-sm btn-success"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-sm btn-danger" (click)="deleteTraining(training)"><i class="fa fa-times"></i></button>
+            <button class="btn btn-sm btn-success" (click)="editTraining(training)"><i class="fa fa-pencil"></i></button>
             <span class="vertical-date">
               <small>Promoción del {{ training.promotion }}</small>
             </span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="formModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="formModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos formativos</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="formGroup">
+          <div class="form-group">
+            <label>Cualificación: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Ej: Técnico Superior en Administración de Sistemas"
+                   formControlName="qualification" [ngClass]="{'invalid':!formGroup.controls['qualification'].valid}">
+            <label>Centro: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Centro formativo donde obtuviste el título"
+                   formControlName="center" [ngClass]="{'invalid':!formGroup.controls['center'].valid}">
+            <label>Ciudad: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Lugar donde se encuentra el centro"
+                   formControlName="city" [ngClass]="{'invalid':!formGroup.controls['city'].valid}">
+            <label>Promoción: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Año de finalización"
+                   formControlName="promotion" [ngClass]="{'invalid':!formGroup.controls['promotion'].valid}">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveTraining()">Guardar cambios</button>
       </div>
     </div>
   </div>
