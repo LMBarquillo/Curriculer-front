@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e8bb2f3c-0842-46d6-89ba-00e1f23245ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utiles/formats.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/utiles/formats.utils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/jobs/jobs.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/jobs/jobs.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/views/training/training.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/training/training.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -80,17 +76,17 @@
           <entry key="HTML" value="35" />
           <entry key="JSON" value="8" />
           <entry key="Markdown" value="1" />
-          <entry key="SCSS" value="15" />
+          <entry key="SCSS" value="16" />
           <entry key="TypeScript" value="122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="8744" />
+          <entry key="HTML" value="9467" />
           <entry key="JSON" value="81" />
-          <entry key="PLAIN_TEXT" value="2241" />
-          <entry key="SCSS" value="1128" />
-          <entry key="TypeScript" value="17408" />
+          <entry key="PLAIN_TEXT" value="2392" />
+          <entry key="SCSS" value="1412" />
+          <entry key="TypeScript" value="18005" />
         </counts>
       </usages-collector>
     </session>
@@ -130,7 +126,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
+            <state relative-caret-position="-920">
               <caret line="23" column="136" selection-start-line="23" selection-start-column="136" selection-end-line="23" selection-end-column="136" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
@@ -142,8 +138,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+            <state relative-caret-position="700">
+              <caret line="101" column="83" lean-forward="true" selection-start-line="101" selection-start-column="83" selection-end-line="101" selection-end-column="83" />
+              <folding>
+                <element signature="e#3271#3277#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -151,11 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#48#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="814">
+              <caret line="104" selection-start-line="104" selection-end-line="104" />
             </state>
           </provider>
         </entry>
@@ -165,15 +170,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
               <caret line="8" column="60" lean-forward="true" selection-start-line="8" selection-start-column="60" selection-end-line="8" selection-end-column="60" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/services/jobs.service.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="37" lean-forward="true" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -217,7 +213,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.html" />
         <option value="$PROJECT_DIR$/src/app/components/common/topnavbar/topnavbar.component.scss" />
         <option value="$PROJECT_DIR$/src/app/utiles/swal.ts" />
         <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts" />
@@ -265,8 +260,9 @@
         <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/formats.utils.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" />
-        <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/training/training.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.scss" />
         <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.html" />
       </list>
     </option>
@@ -475,7 +471,7 @@
       <workItem from="1556643263575" duration="7051000" />
       <workItem from="1556651419104" duration="1516000" />
       <workItem from="1556695054209" duration="13812000" />
-      <workItem from="1557245849900" duration="5485000" />
+      <workItem from="1557245849900" duration="8374000" />
     </task>
     <task id="LOCAL-00001" summary="Restructurados archivos. Página inicial en Login">
       <created>1555005564781</created>
@@ -722,11 +718,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557251270650</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Creado Modal y formControl para la experiencia laboral">
+      <created>1557252674783</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1557252674783</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Finalizado sistema de etiquetas para añadir y eliminar actividades en la experiencia laboral.">
+      <created>1557255449404</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1557255449404</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92903000" />
+    <option name="totallyTimeSpent" value="95792000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -809,8 +819,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Creada clase con validadores personalizados." />
-    <MESSAGE value="Finalizado sistema de registro, a falta del control de errores" />
     <MESSAGE value="Finalizado sistema de registro. Errores incluídos." />
     <MESSAGE value="Añadido sistema para cambiar la fotografía del usuario" />
     <MESSAGE value="Formateada foto para que no se deforme" />
@@ -834,17 +842,12 @@
     <MESSAGE value="Añadidos breadcrumb y toolbar a la experiencia laboral, idiomas y habilidades" />
     <MESSAGE value="Añadida carga inicial de trabajos y sectores y ordenados respectivamente." />
     <MESSAGE value="Terminado deleteJob. Formateado varios archivos." />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminado deleteJob. Formateado varios archivos." />
+    <MESSAGE value="Creado Modal y formControl para la experiencia laboral" />
+    <MESSAGE value="Finalizado sistema de etiquetas para añadir y eliminar actividades en la experiencia laboral." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalizado sistema de etiquetas para añadir y eliminar actividades en la experiencia laboral." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/environments/environment.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/login/login.component.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1165,26 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="23" column="136" selection-start-line="23" selection-start-column="136" selection-end-line="23" selection-end-column="136" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1280">
@@ -1192,10 +1175,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-920">
+          <caret line="23" column="136" selection-start-line="23" selection-start-column="136" selection-end-line="23" selection-end-column="136" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="814">
+          <caret line="104" selection-start-line="104" selection-end-line="104" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="50" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+        <state relative-caret-position="700">
+          <caret line="101" column="83" lean-forward="true" selection-start-line="101" selection-start-column="83" selection-end-line="101" selection-end-column="83" />
+          <folding>
+            <element signature="e#3271#3277#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

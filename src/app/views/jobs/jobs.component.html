@@ -98,10 +98,13 @@
               <i class="fa fa-times label-closer" (click)="removeActivity(activity)"></i>
             </span>
           </div>
+          <div class="alert alert-info" role="alert" *ngIf="activities.length == 0">
+            <p>Especifique al menos una actividad desarrollada en este trabajo.</p>
+          </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveTraining()">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid || activities.length == 0" (click)="saveTraining()">Guardar cambios</button>
       </div>
     </div>
   </div>
