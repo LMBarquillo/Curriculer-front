@@ -22,13 +22,14 @@ export class JobsComponent implements OnInit {
   public editing: number;
 
 
-  constructor(private jobsService: JobsService) { }
+  constructor(private jobsService: JobsService) {
+  }
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     this.resetFormGroup();
     forkJoin(this.jobsService.getJobs(),
-             this.jobsService.getSectors()).subscribe(
+      this.jobsService.getSectors()).subscribe(
       ([jobs, sectors]) => {
         this.jobs = jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true));
         this.sectors = sectors.sort((a, b) => Utilities.compareString(a.sector, b.sector, false));
@@ -45,15 +46,35 @@ export class JobsComponent implements OnInit {
     this.formModal = true;
   }
 
+  public editJob(job: JobModel): void {
 
+  }
+
+  public deleteJob(job: JobModel): void {
+    Swal.buildSwal('Eliminar experiencia laboral', '¿Está seguro de que desea eliminar su trabajo en ' + job.employer + '?', 'question', 'SI', 'NO').then(
+      yes => {
+        if (yes.value) {
+          this.jobsService.deleteJob(job.id).subscribe(
+            ok => {
+              this.jobs = this.jobs.filter((value, index) => this.jobs.findIndex(item => item.id == ok) !== index);
+              Swal.buildSwalWithoutCancel('Experiencia laboral eliminada', 'Se eliminó el trabajo correctamente.', 'success');
+            }, err => {
+              console.log(err);
+              Swal.buildSwalWithoutCancel('Error', 'No se pudo eliminar el trabajo del usuario.', 'error');
+            }
+          );
+        }
+      }
+    )
+  }
 
   public resetFormGroup(): void {
     this.formGroup = new FormGroup(
       {
-        qualification: new FormControl("", Validators.required),
-        center: new FormControl("", Validators.required),
-        city: new FormControl("", Validators.required),
-        promotion: new FormControl("", CustomValidators.isValidYear)
+        qualification: new FormControl('', Validators.required),
+        center: new FormControl('', Validators.required),
+        city: new FormControl('', Validators.required),
+        promotion: new FormControl('', CustomValidators.isValidYear)
       }
     );
     this.editing = 0;

@@ -17,14 +17,15 @@ export class TrainingComponent implements OnInit {
   public formGroup: FormGroup;
   public editing: number;
 
-  constructor(private trainingService: TrainingsService) { }
+  constructor(private trainingService: TrainingsService) {
+  }
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     this.resetFormGroup();
     this.trainingService.getTrainings().subscribe(
       trainings => {
-        this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
+        this.trainings = trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true));
         Swal.close();
       }, err => {
         console.log(err);
@@ -62,7 +63,7 @@ export class TrainingComponent implements OnInit {
       promotion: parseInt(this.formGroup.controls['promotion'].value)
     };
 
-    if(this.editing > 0) {
+    if (this.editing > 0) {
       training.id = this.editing;
       this.trainingService.updateTraining(training).subscribe(
         ok => {
@@ -81,7 +82,7 @@ export class TrainingComponent implements OnInit {
       this.trainingService.insertTraining(training).subscribe(
         ok => {
           this.trainings.push(ok);
-          setTimeout(() => this.trainings = this.trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true)),0);
+          setTimeout(() => this.trainings = this.trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true)), 0);
           Swal.buildSwalWithoutCancel('Formación añadida', 'Se añadió la formación correctamente.', 'success');
         }, err => {
           Swal.buildSwalWithoutCancel('Error', 'No se pudo insertar la formación del usuario.', 'error');
@@ -91,12 +92,12 @@ export class TrainingComponent implements OnInit {
   }
 
   public deleteTraining(training: TrainingModel): void {
-    Swal.buildSwal("Eliminar formación","¿Está seguro de que desea borrar el título de " + training.qualification + "?","question","SI","NO").then(
+    Swal.buildSwal('Eliminar formación', '¿Está seguro de que desea borrar el título de ' + training.qualification + '?', 'question', 'SI', 'NO').then(
       yes => {
-        if(yes.value) {
+        if (yes.value) {
           this.trainingService.deleteTraining(training.id).subscribe(
             ok => {
-              this.trainings = this.trainings.filter((value, index) => this.trainings.findIndex(item => item.id==ok) !== index);
+              this.trainings = this.trainings.filter((value, index) => this.trainings.findIndex(item => item.id == ok) !== index);
               Swal.buildSwalWithoutCancel('Formación eliminada', 'Se eliminó la formación correctamente.', 'success');
             }, err => {
               console.log(err);
@@ -111,10 +112,10 @@ export class TrainingComponent implements OnInit {
   public resetFormGroup(): void {
     this.formGroup = new FormGroup(
       {
-        qualification: new FormControl("", Validators.required),
-        center: new FormControl("", Validators.required),
-        city: new FormControl("", Validators.required),
-        promotion: new FormControl("", CustomValidators.isValidYear)
+        qualification: new FormControl('', Validators.required),
+        center: new FormControl('', Validators.required),
+        city: new FormControl('', Validators.required),
+        promotion: new FormControl('', CustomValidators.isValidYear)
       }
     );
     this.editing = 0;
