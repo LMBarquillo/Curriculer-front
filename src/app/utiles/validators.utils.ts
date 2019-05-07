@@ -27,6 +27,10 @@ export class CustomValidators {
     return moment(control.value, 'DD/MM/YYYY').isValid() ? null : { dateValid: false};
   }
 
+  public static isValidDateOrEmpty(control: FormControl) {
+    return moment(control.value, 'DD/MM/YYYY').isValid() || control.value == '' ? null : { dateValid: false};
+  }
+
   public static isIntegerNumber(formControl: FormControl) {
     return new RegExp('^\\d+$').test(formControl.value)
       ? null

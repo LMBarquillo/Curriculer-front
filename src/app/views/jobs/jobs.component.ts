@@ -21,18 +21,17 @@ export class JobsComponent implements OnInit {
   public formModal: boolean = false;
   public editing: number;
 
-
   constructor(private jobsService: JobsService) {
   }
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
-    this.resetFormGroup();
     forkJoin(this.jobsService.getJobs(),
       this.jobsService.getSectors()).subscribe(
       ([jobs, sectors]) => {
         this.jobs = jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true));
         this.sectors = sectors.sort((a, b) => Utilities.compareString(a.sector, b.sector, false));
+        this.resetFormGroup();
         Swal.close();
       }, err => {
         console.log(err);
@@ -47,7 +46,17 @@ export class JobsComponent implements OnInit {
   }
 
   public editJob(job: JobModel): void {
-
+    this.formGroup = new FormGroup(
+      {
+        employer: new FormControl(job.employer, Validators.required),
+        city: new FormControl(job.city, Validators.required),
+        from: new FormControl(this.getDate(job.from), CustomValidators.isValidDate),
+        to: new FormControl(job.to ? this.getDate(job.to) : '', CustomValidators.isValidDateOrEmpty),
+        sector: new FormControl(job.sector.id, Validators.required)
+      }
+    );
+    this.editing = job.id;
+    this.formModal = true;
   }
 
   public deleteJob(job: JobModel): void {
@@ -71,10 +80,11 @@ export class JobsComponent implements OnInit {
   public resetFormGroup(): void {
     this.formGroup = new FormGroup(
       {
-        qualification: new FormControl('', Validators.required),
-        center: new FormControl('', Validators.required),
+        employer: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required),
-        promotion: new FormControl('', CustomValidators.isValidYear)
+        from: new FormControl(Formats.today(), CustomValidators.isValidDate),
+        to: new FormControl('', CustomValidators.isValidDateOrEmpty),
+        sector: new FormControl(this.sectors[0].id, Validators.required)
       }
     );
     this.editing = 0;

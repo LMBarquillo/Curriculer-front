@@ -8,6 +8,11 @@ export class Formats {
     return zeroFill(date.getDate(), 2) + '/' + zeroFill(date.getMonth() + 1, 2) + '/' + date.getFullYear();
   }
 
+  public static today(): string {
+    let date = new Date();
+    return zeroFill(date.getDate(), 2) + '/' + zeroFill(date.getMonth() + 1, 2) + '/' + date.getFullYear();
+  }
+
   public static zeroFill(number: string, width: number) {
     width -= number.toString().length;
     if (width > 0) {

@@ -22,10 +22,10 @@ export class TrainingComponent implements OnInit {
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
-    this.resetFormGroup();
     this.trainingService.getTrainings().subscribe(
       trainings => {
         this.trainings = trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true));
+        this.resetFormGroup();
         Swal.close();
       }, err => {
         console.log(err);

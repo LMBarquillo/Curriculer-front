@@ -18,7 +18,7 @@
 <div class="toolbar">
   <div class="toolbar-content">
     <div class="icon-advise" *ngIf="jobs.length == 0"><i class="fa fa-arrow-right swinging"></i></div>
-    <div class="btn btn-primary" (click)="null"><i class="fa fa-plus"></i> Añadir experiencia</div>
+    <div class="btn btn-primary" (click)="addJob()"><i class="fa fa-plus"></i> Añadir experiencia</div>
   </div>
 </div>
 
@@ -58,3 +58,30 @@
     </div>
   </div>
 </div>
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="formModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="formModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos de tu experiencia laboral</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="formGroup">
+          <div class="form-group">
+            <label>Empresa contratante: <em>*</em></label>
+            <input type="text" class="form-control"
+                   formControlName="qualification" [ngClass]="{'invalid':!formGroup.controls['qualification'].valid}">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveTraining()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
