@@ -58,8 +58,8 @@ export class UserhomeComponent implements OnInit {
              this.skillService.getOtherSkills()).subscribe(
       ([user, trainings, jobs, languages, digitalSkills, otherSkills]) => {
         this.userData = user;
-        this.trainings = trainings.sort((a, b) => Utilities.compare(a.promotion, b.promotion, true));
-        this.jobs = jobs.sort((a, b) => Utilities.compare(a.from, b.from, true));
+        this.trainings = trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true));
+        this.jobs = jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true));
         this.languages = languages;
         this.digitalSkills = digitalSkills;
         this.otherSkills = otherSkills;
