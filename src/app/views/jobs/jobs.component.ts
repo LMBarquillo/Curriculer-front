@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {JobModel} from '../../models/job.model';
 import {JobsService} from '../../services/jobs.service';
 import {Swal} from '../../utiles/swal.utils';
@@ -8,6 +8,7 @@ import {forkJoin} from 'rxjs/observable/forkJoin';
 import {SectorModel} from '../../models/sector.model';
 import {Formats} from '../../utiles/formats.utils';
 import {Utilities} from '../../utiles/utilities.utils';
+import {ActivityModel} from '../../models/activity.model';
 
 @Component({
   selector: 'app-jobs',
@@ -15,8 +16,10 @@ import {Utilities} from '../../utiles/utilities.utils';
   styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent implements OnInit {
+  @ViewChild('activityfield') activityField: ElementRef;
   public jobs: JobModel[] = [];
   public sectors: SectorModel[] = [];
+  public activities: ActivityModel[] = [];
   public formGroup: FormGroup;
   public formModal: boolean = false;
   public editing: number;
@@ -55,6 +58,7 @@ export class JobsComponent implements OnInit {
         sector: new FormControl(job.sector.id, Validators.required)
       }
     );
+    this.activities = job.activities.slice(0);  // Para pasar por valor, en lugar de referencia
     this.editing = job.id;
     this.formModal = true;
   }
@@ -87,7 +91,17 @@ export class JobsComponent implements OnInit {
         sector: new FormControl(this.sectors[0].id, Validators.required)
       }
     );
+    this.activities = [];
     this.editing = 0;
+  }
+
+  public addActivity(activity: string): void {
+    if(activity.length > 0) this.activities.push({id: null, activity: activity});
+    this.activityField.nativeElement.value = '';
+  }
+
+  public removeActivity(activity: ActivityModel): void {
+    this.activities = this.activities.filter((value, index) => this.activities.findIndex(item => item.id == activity.id) !== index);
   }
 
   public getDate(date: string): string {

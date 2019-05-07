@@ -1,0 +1,22 @@
+.label-closer {
+  cursor: pointer;
+  margin-left: 5px;
+  transition: .3s all;
+}
+.label-closer:hover {
+  color: #ccc;
+}
+.relative {
+  position: relative;
+}
+.input-add {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.label-group {
+  overflow: hidden;
+}
+.label-success {
+  float: left;
+}

@@ -74,9 +74,31 @@
           <div class="form-group">
             <label>Empresa contratante: <em>*</em></label>
             <input type="text" class="form-control"
-                   formControlName="qualification" [ngClass]="{'invalid':!formGroup.controls['qualification'].valid}">
+                   formControlName="employer" [ngClass]="{'invalid':!formGroup.controls['employer'].valid}">
+            <label>Ciudad: <em>*</em></label>
+            <input type="text" class="form-control"
+                   formControlName="city" [ngClass]="{'invalid':!formGroup.controls['city'].valid}">
+            <label>Fecha inicio: <em>*</em></label>
+            <input type="text" class="form-control"
+                   formControlName="from" [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
           </div>
         </form>
+        <hr/>
+        <div class="form-group relative">
+          <label>Actividades realizadas: <em>*</em></label>
+          <div class="relative m-b-sm">
+            <input #activityfield type="text" class="form-control m-t-xs">
+            <button type="button" class="btn btn-primary input-add" (click)="addActivity(activityfield.value)">
+              <i class="fa fa-plus"></i>&nbsp;
+              Añadir
+            </button>
+          </div>
+          <div class="label-group m-t-xs m-b-xs">
+            <span class="label label-success m-r-xs m-b-xs" *ngFor="let activity of activities">{{ activity.activity }}
+              <i class="fa fa-times label-closer" (click)="removeActivity(activity)"></i>
+            </span>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveTraining()">Guardar cambios</button>
