@@ -22,6 +22,7 @@ export class JobsComponent implements OnInit {
   public activities: ActivityModel[] = [];
   public formGroup: FormGroup;
   public formModal: boolean = false;
+  public currentWork: boolean = false;
   public editing: number;
 
   constructor(private jobsService: JobsService) {
@@ -61,6 +62,27 @@ export class JobsComponent implements OnInit {
     this.activities = job.activities.slice(0);  // Para pasar por valor, en lugar de referencia
     this.editing = job.id;
     this.formModal = true;
+  }
+
+  public saveJob(): void {
+    Swal.buildSwallWithoutButtons('Guardando', 'Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
+    this.formModal = false;
+
+    let job: JobModel = {
+      id: 0,
+      employer: this.formGroup.controls['employer'].value,
+      city: this.formGroup.controls['city'].value,
+      from: new Date(this.formGroup.controls['from'].value),
+      to: null,
+      sector: null,
+      activities: this.activities
+    };
+
+    if (this.editing > 0) {
+
+    } else {
+
+    }
   }
 
   public deleteJob(job: JobModel): void {
