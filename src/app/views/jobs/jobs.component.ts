@@ -22,7 +22,7 @@ export class JobsComponent implements OnInit {
   public activities: ActivityModel[] = [];
   public formGroup: FormGroup;
   public formModal: boolean = false;
-  public currentWork: boolean = false;
+  public currentJob: boolean = false;
   public editing: number;
 
   constructor(private jobsService: JobsService) {
@@ -50,17 +50,19 @@ export class JobsComponent implements OnInit {
   }
 
   public editJob(job: JobModel): void {
+    console.log(job);
     this.formGroup = new FormGroup(
       {
         employer: new FormControl(job.employer, Validators.required),
         city: new FormControl(job.city, Validators.required),
-        from: new FormControl(this.getDate(job.from), CustomValidators.isValidDate),
-        to: new FormControl(job.to ? this.getDate(job.to) : '', CustomValidators.isValidDateOrEmpty),
+        from: new FormControl(this.dateToForm(job.from), CustomValidators.isValidDate),
+        to: new FormControl(this.dateToForm(job.to), CustomValidators.isValidDateOrEmpty),
         sector: new FormControl(job.sector.id, Validators.required)
       }
     );
     this.activities = job.activities.slice(0);  // Para pasar por valor, en lugar de referencia
     this.editing = job.id;
+    this.currentJob = job.to == null;
     this.formModal = true;
   }
 
@@ -109,11 +111,12 @@ export class JobsComponent implements OnInit {
         employer: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required),
         from: new FormControl(Formats.today(), CustomValidators.isValidDate),
-        to: new FormControl('', CustomValidators.isValidDateOrEmpty),
+        to: new FormControl('', CustomValidators.isValidDate),
         sector: new FormControl(this.sectors[0].id, Validators.required)
       }
     );
     this.activities = [];
+    this.currentJob = false;
     this.editing = 0;
   }
 
@@ -128,5 +131,13 @@ export class JobsComponent implements OnInit {
 
   public getDate(date: string): string {
     return Formats.formatDate(date);
+  }
+
+  public dateToForm(date: string): string {
+    return Formats.dateToForm(date);
+  }
+
+  public toggleDateTo(): void {
+    this.currentJob = !this.currentJob;
   }
 }

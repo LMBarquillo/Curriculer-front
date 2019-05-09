@@ -19,7 +19,16 @@ import {TrainingComponent} from './training/training.component';
 import {JobsComponent} from './jobs/jobs.component';
 import {LanguagesComponent} from './languages/languages.component';
 import {SkillsComponent} from './skills/skills.component';
-import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {BsDatepickerConfig, BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+
+export function getDatepickerConfig(): BsDatepickerConfig {
+  return Object.assign(new BsDatepickerConfig(), {
+    dateInputFormat: 'DD/MM/YYYY',
+    containerClass: 'theme-dark-blue',
+    placement: 'bottom',
+    selectFromOtherMonth: true
+  });
+}
 
 @NgModule({
   declarations: [
@@ -50,7 +59,8 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
     TrainingsService,
     JobsService,
     LanguagesService,
-    SkillsService
+    SkillsService,
+    { provide: BsDatepickerConfig, useFactory: getDatepickerConfig }
   ]
 })
 

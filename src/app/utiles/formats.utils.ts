@@ -1,9 +1,14 @@
 import {zeroFill} from 'ngx-bootstrap/bs-moment/utils';
+import * as moment from 'moment';
 
 export class Formats {
+  public static dateToForm(utc: string): string {
+    if(utc == null) return "";
+    return moment(utc).format('MM/DD/YYYY');
+  }
+
   public static formatDate(utc: string): string {
     if(utc == null) return "";
-
     let date = new Date(utc);
     return zeroFill(date.getDate(), 2) + '/' + zeroFill(date.getMonth() + 1, 2) + '/' + date.getFullYear();
   }

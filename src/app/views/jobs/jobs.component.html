@@ -40,6 +40,7 @@
           <div class="vertical-timeline-content">
             <h2>{{ job.employer }}</h2>
             <h3>{{ job.city }}</h3>
+            <h4>{{ job.sector.sector }}</h4>
             <hr/>
             <h3>Actividades realizadas:</h3>
             <ul>
@@ -78,18 +79,26 @@
             <label>Ciudad: <em>*</em></label>
             <input type="text" class="form-control"
                    formControlName="city" [ngClass]="{'invalid':!formGroup.controls['city'].valid}">
-            <label>Fecha inicio: <em>*</em></label>
-            <input type="text" class="form-control"
-                   formControlName="from" [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
-            <div>
-              <label>Fecha fin: <em>*</em></label>
-              <div class="custom-checkbox" (click)="currentWork = !currentWork" [ngClass]="{'custom-checkbox-active':currentWork}">
-                <i class="fa fa-check"></i>
+            <div class="row">
+              <div class="col-xs-6">
+                <label>Fecha inicio: <em>*</em></label>
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="from" [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
+              </div>
+              <div class="col-xs-6">
+                <label>Fecha fin: <em>*</em></label>
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="to" >
               </div>
             </div>
-            <input type="text" class="form-control"
-                   formControlName="to" [ngClass]="{'invalid':!formGroup.controls['to'].valid}">
-            <select class="form-control">
+            <div class="row">
+              <div class="col-xs-12 cb-container">
+                <div class="custom-checkbox center-in-row" (click)="toggleDateTo()" [ngClass]="{'custom-checkbox-active':currentJob}">
+                  <i class="fa fa-check"></i>
+                </div>
+                Este es mi trabajo actual.
+              </div>
+            </div>
+            <label>Sector profesional: <em>*</em></label>
+            <select class="form-control" formControlName="sector">
               <option *ngFor="let sector of sectors" [value]="sector.id">{{ sector.sector }}</option>
             </select>
           </div>

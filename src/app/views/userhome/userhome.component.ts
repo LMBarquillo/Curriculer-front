@@ -17,7 +17,6 @@ import {DigitalSkillModel} from '../../models/digital-skill.model';
 import {SkillModel} from '../../models/skill.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../utiles/validators.utils';
-import {BS_CONFIG} from '../../utiles/constants.interface';
 import {of} from 'rxjs/observable/of';
 
 @Component({
@@ -33,7 +32,6 @@ export class UserhomeComponent implements OnInit {
   public digitalSkills: DigitalSkillModel;
   public otherSkills: SkillModel[] = [];
   public userForm: FormGroup;
-  public bsConfig = BS_CONFIG;
 
   public userInfoModal: boolean = false;
 
@@ -72,7 +70,7 @@ export class UserhomeComponent implements OnInit {
             city: new FormControl(this.userData.city),
             email: new FormControl(this.userData.email, [Validators.required, CustomValidators.isValidEmail]),
             nationality: new FormControl(this.userData.nationality),
-            birthdate: new FormControl(this.userData.birthdate ? this.getDate(this.userData.birthdate) : "", CustomValidators.isValidDate)
+            birthdate: new FormControl(this.userData.birthdate ? this.dateToForm(this.userData.birthdate) : "", CustomValidators.isValidDate)
           }
         );
         Swal.close();
@@ -109,6 +107,10 @@ export class UserhomeComponent implements OnInit {
 
   public getDate(date: string): string {
     return Formats.formatDate(date);
+  }
+
+  public dateToForm(date: string): string {
+    return Formats.dateToForm(date);
   }
 
   public getUser(): string {

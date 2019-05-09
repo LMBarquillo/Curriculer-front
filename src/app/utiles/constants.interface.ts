@@ -15,11 +15,3 @@ export const EP_SECTORS: string = API + '/sector';
 export const EP_LANGUAGES: string = API + '/language';
 export const EP_DIGITAL_SKILLS: string = API + '/digitalskill';
 export const EP_OTHER_SKILLS: string = API + '/otherskill';
-
-// Configuracion Datepicker
-export const BS_CONFIG = {
-  dateInputFormat: 'DD/MM/YYYY',
-  containerClass: 'theme-dark-blue',
-  placement: 'bottom',
-  selectFromOtherMonth: true
-};

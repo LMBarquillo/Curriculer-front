@@ -238,7 +238,7 @@
             <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality" [ngClass]="{'invalid':!userForm.controls['nationality'].valid}">
             <label>Fecha de nacimiento: <em>*</em></label>
             <input type="text" class="form-control" placeholder="Datepicker" formControlName="birthdate" bsDatepicker
-                   [bsConfig]="bsConfig" [ngClass]="{'invalid':!userForm.controls['birthdate'].valid}">
+                   BsDatepickerConfig [ngClass]="{'invalid':!userForm.controls['birthdate'].valid}">
           </div>
         </form>
       </div>
