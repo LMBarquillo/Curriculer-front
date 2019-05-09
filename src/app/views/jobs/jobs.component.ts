@@ -50,7 +50,6 @@ export class JobsComponent implements OnInit {
   }
 
   public editJob(job: JobModel): void {
-    console.log("to: " + job.to);
     this.formGroup = new FormGroup(
       {
         employer: new FormControl(job.employer, Validators.required),
@@ -75,15 +74,38 @@ export class JobsComponent implements OnInit {
       employer: this.formGroup.controls['employer'].value,
       city: this.formGroup.controls['city'].value,
       from: new Date(this.formGroup.controls['from'].value),
-      to: null,
-      sector: null,
+      to: this.currentJob ? null : new Date(this.formGroup.controls['to'].value),
+      sector: this.sectors[this.sectors.findIndex(value => value.id == this.formGroup.controls['sector'].value)],
       activities: this.activities
     };
 
     if (this.editing > 0) {
+      job.id = this.editing;
+      this.jobsService.updateJob(job).subscribe(
+        ok => {
+          let updated = this.jobs.find(item => item.id == ok.id);
+          updated.employer = ok.employer;
+          updated.city = ok.city;
+          updated.sector = ok.sector;
+          updated.from = ok.from;
+          updated.to = ok.to;
+          updated.activities = ok.activities;
 
+          Swal.buildSwalWithoutCancel('Trabajo actualizado', 'Se actualizó su experiencia laboral correctamente.', 'success');
+        }, () => {
+          Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar su experiencia laboral.', 'error');
+        }
+      );
     } else {
-
+      this.jobsService.insertJob(job).subscribe(
+        ok => {
+          this.jobs.push(ok);
+          setTimeout(() => this.jobs = this.jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true)), 0);
+          Swal.buildSwalWithoutCancel('Nuevo trabajo añadido', 'Se añadió la experiencia laboral correctamente.', 'success');
+        }, () => {
+          Swal.buildSwalWithoutCancel('Error', 'No se pudo insertar el trabajo.', 'error');
+        }
+      );
     }
   }
 
@@ -105,7 +127,7 @@ export class JobsComponent implements OnInit {
     )
   }
 
-  public resetFormGroup(): void {
+  private resetFormGroup(): void {
     this.formGroup = new FormGroup(
       {
         employer: new FormControl('', Validators.required),

@@ -91,7 +91,7 @@
                        [ngClass]="{'invalid':!formGroup.controls['to'].valid}">
               </div>
             </div>
-            <div class="row">
+            <div class="row m-b-sm">
               <div class="col-xs-12 cb-container">
                 <div class="custom-checkbox center-in-row" (click)="toggleDateTo()" [ngClass]="{'custom-checkbox-active':currentJob}">
                   <i class="fa fa-check"></i>
@@ -126,7 +126,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid || activities.length == 0" (click)="saveTraining()">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid || activities.length == 0" (click)="saveJob()">Guardar cambios</button>
       </div>
     </div>
   </div>

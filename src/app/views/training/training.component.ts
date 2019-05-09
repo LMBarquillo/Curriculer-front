@@ -67,11 +67,11 @@ export class TrainingComponent implements OnInit {
       training.id = this.editing;
       this.trainingService.updateTraining(training).subscribe(
         ok => {
-          let training = this.trainings.find(item => item.id == ok.id);
-          training.promotion = ok.promotion;
-          training.center = ok.center;
-          training.city = ok.city;
-          training.qualification = ok.qualification;
+          let updated = this.trainings.find(item => item.id == ok.id);
+          updated.promotion = ok.promotion;
+          updated.center = ok.center;
+          updated.city = ok.city;
+          updated.qualification = ok.qualification;
 
           Swal.buildSwalWithoutCancel('Formación actualizada', 'Se actualizó la formación correctamente.', 'success');
         }, err => {
