@@ -25,15 +25,15 @@ export class CustomValidators {
 
   public static isValidDate(control: FormControl) {
     console.log(control.value);
-    return moment(control.value, 'DD/MM/YYYY').isValid() ? null : { dateValid: false};
+    return moment(control.value, 'MM/DD/YYYY').isValid() ? null : { dateValid: false};
   }
 
   public static isValidDateOrEmpty(control: FormControl) {
-    return moment(control.value, 'DD/MM/YYYY').isValid() || control.value == '' ? null : { dateValid: false};
+    return moment(control.value, 'MM/DD/YYYY').isValid() || control.value == '' ? null : { dateValid: false};
   }
 
   public static isValidDateOrNull(control: FormControl) {
-    return moment(control.value, 'DD/MM/YYYY').isValid() || control.value == null ? null : { dateValid: false};
+    return moment(control.value, 'MM/DD/YYYY').isValid() || control.value == null ? null : { dateValid: false};
   }
 
   public static isIntegerNumber(formControl: FormControl) {

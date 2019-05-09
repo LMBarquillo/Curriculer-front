@@ -82,11 +82,13 @@
             <div class="row">
               <div class="col-xs-6">
                 <label>Fecha inicio: <em>*</em></label>
-                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="from" [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="from"
+                       [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
               </div>
-              <div class="col-xs-6">
+              <div class="col-xs-6" *ngIf="!currentJob">
                 <label>Fecha fin: <em>*</em></label>
-                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="to" >
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="to"
+                       [ngClass]="{'invalid':!formGroup.controls['to'].valid}">
               </div>
             </div>
             <div class="row">

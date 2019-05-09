@@ -50,13 +50,13 @@ export class JobsComponent implements OnInit {
   }
 
   public editJob(job: JobModel): void {
-    console.log(job);
+    console.log("to: " + job.to);
     this.formGroup = new FormGroup(
       {
         employer: new FormControl(job.employer, Validators.required),
         city: new FormControl(job.city, Validators.required),
         from: new FormControl(this.dateToForm(job.from), CustomValidators.isValidDate),
-        to: new FormControl(this.dateToForm(job.to), CustomValidators.isValidDateOrEmpty),
+        to: job.to ? new FormControl(this.dateToForm(job.to), CustomValidators.isValidDate) : new FormControl(''),
         sector: new FormControl(job.sector.id, Validators.required)
       }
     );
@@ -111,7 +111,7 @@ export class JobsComponent implements OnInit {
         employer: new FormControl('', Validators.required),
         city: new FormControl('', Validators.required),
         from: new FormControl(Formats.today(), CustomValidators.isValidDate),
-        to: new FormControl('', CustomValidators.isValidDate),
+        to: new FormControl(''),
         sector: new FormControl(this.sectors[0].id, Validators.required)
       }
     );
@@ -138,6 +138,15 @@ export class JobsComponent implements OnInit {
   }
 
   public toggleDateTo(): void {
-    this.currentJob = !this.currentJob;
+    if(this.currentJob) {
+      this.currentJob = false;
+      this.formGroup.controls['to'].validator = CustomValidators.isValidDate;
+      this.formGroup.controls['to'].updateValueAndValidity();
+    } else {
+      this.currentJob = true;
+      this.formGroup.controls['to'].setValue('');
+      this.formGroup.controls['to'].clearValidators();
+      this.formGroup.controls['to'].updateValueAndValidity();
+    }
   }
 }
