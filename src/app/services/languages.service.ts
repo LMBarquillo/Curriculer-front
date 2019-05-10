@@ -22,4 +22,16 @@ export class LanguagesService {
   public getLanguageGrades(): Observable<SkillGradeModel[]> {
     return this.http.get(EP_LANGUAGE_GRADES);
   }
+
+  public insertLanguage(model: LanguageSkillModel): Observable<LanguageSkillModel> {
+    return this.http.post(EP_LANGUAGE_SKILLS, model);
+  }
+
+  public updateJob(model: LanguageSkillModel): Observable<LanguageSkillModel> {
+    return this.http.put(EP_LANGUAGE_SKILLS, model);
+  }
+
+  public deleteLanguage(id: number): Observable<number> {
+    return this.http.delete(EP_LANGUAGE_SKILLS + '/' + id);
+  }
 }

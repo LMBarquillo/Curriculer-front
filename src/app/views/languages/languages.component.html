@@ -17,8 +17,8 @@
 
 <div class="toolbar">
   <div class="toolbar-content">
-    <div class="icon-advise"><i class="fa fa-arrow-right swinging"></i></div>
-    <div class="btn btn-primary" (click)="null"><i class="fa fa-plus"></i> Añadir idioma</div>
+    <div class="icon-advise" *ngIf="languageSkills.length == 0"><i class="fa fa-arrow-right swinging"></i></div>
+    <div class="btn btn-primary" (click)="addLanguage()"><i class="fa fa-plus"></i> Añadir idioma</div>
   </div>
 </div>
 
@@ -58,7 +58,7 @@
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" *ngIf="formModal">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
       <div class="close-button" (click)="formModal = false">
         <i class="fa fa-times" aria-hidden="true"></i>
@@ -71,14 +71,34 @@
         <form role="form" [formGroup]="formGroup">
           <div class="form-group">
             <label>Idioma: <em>*</em></label>
-            <select formControlName="language">
+            <select class="form-control" formControlName="language">
               <option *ngFor="let lang of languages" [value]="lang.id">{{ lang.language }} ({{ lang.code }})</option>
+            </select>
+            <label>Comprensión Lectora: <em>*</em></label>
+            <select class="form-control" formControlName="reading">
+              <option *ngFor="let grade of languageGrades" [value]="grade.id">{{ grade.grade }}</option>
+            </select>
+            <label>Comprensión Auditiva: <em>*</em></label>
+            <select class="form-control" formControlName="listening">
+              <option *ngFor="let grade of languageGrades" [value]="grade.id">{{ grade.grade }}</option>
+            </select>
+            <label>Expresión Escrita: <em>*</em></label>
+            <select class="form-control" formControlName="writing">
+              <option *ngFor="let grade of languageGrades" [value]="grade.id">{{ grade.grade }}</option>
+            </select>
+            <label>Interacción oral: <em>*</em></label>
+            <select class="form-control" formControlName="interaction">
+              <option *ngFor="let grade of languageGrades" [value]="grade.id">{{ grade.grade }}</option>
+            </select>
+            <label>Expresión oral: <em>*</em></label>
+            <select class="form-control" formControlName="production">
+              <option *ngFor="let grade of languageGrades" [value]="grade.id">{{ grade.grade }}</option>
             </select>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveTraining()">Guardar cambios</button>
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid" (click)="saveLanguage()">Guardar cambios</button>
       </div>
     </div>
   </div>
