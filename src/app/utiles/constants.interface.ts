@@ -13,5 +13,7 @@ export const EP_TRAININGS: string = API + '/training';
 export const EP_JOBS: string = API + '/job';
 export const EP_SECTORS: string = API + '/sector';
 export const EP_LANGUAGES: string = API + '/language';
+export const EP_LANGUAGE_SKILLS: string = API + '/language/skill';
+export const EP_LANGUAGE_GRADES: string = API + '/language/grade';
 export const EP_DIGITAL_SKILLS: string = API + '/digitalskill';
 export const EP_OTHER_SKILLS: string = API + '/otherskill';

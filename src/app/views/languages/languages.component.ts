@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
-import {LanguageModel} from '../../models/language.model';
+import {LanguageSkillModel} from '../../models/language-skill.model';
 import {Swal} from '../../utiles/swal.utils';
 import {LanguagesService} from '../../services/languages.service';
+import {forkJoin} from 'rxjs/observable/forkJoin';
+import {SkillGradeModel} from '../../models/skill-grade.model';
+import {LanguageModel} from '../../models/language.model';
+import {Utilities} from '../../utiles/utilities.utils';
 
 @Component({
   selector: 'app-languages',
@@ -10,6 +14,8 @@ import {LanguagesService} from '../../services/languages.service';
   styleUrls: ['./languages.component.scss']
 })
 export class LanguagesComponent implements OnInit {
+  public languageSkills: LanguageSkillModel[] = [];
+  public languageGrades: SkillGradeModel[] = [];
   public languages: LanguageModel[] = [];
   public formModal: boolean = false;
   public formGroup: FormGroup;
@@ -19,9 +25,13 @@ export class LanguagesComponent implements OnInit {
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
-    this.languageService.getLanguages().subscribe(
-      languages => {
-        this.languages = languages;
+    forkJoin(this.languageService.getLanguageSkills(),
+             this.languageService.getLanguageGrades(),
+             this.languageService.getLanguages()).subscribe(
+      ([skills, grades, languages]) => {
+        this.languageSkills = skills;
+        this.languages = languages.sort((a, b) => Utilities.compareNumber(a.id, b.id));
+        this.languageGrades = grades.sort((a, b) => Utilities.compareNumber(a.id, b.id));
         this.resetFormGroup();
         Swal.close();
       }, err => {
@@ -36,7 +46,7 @@ export class LanguagesComponent implements OnInit {
     this.formModal = true;
   }
 
-  public editLanguage(language: LanguageModel): void {
+  public editLanguage(language: LanguageSkillModel): void {
     this.formGroup = new FormGroup(
       {
 
@@ -46,7 +56,7 @@ export class LanguagesComponent implements OnInit {
     this.formModal = true;
   }
 
-  public deleteLanguage(language: LanguageModel): void {
+  public deleteLanguage(language: LanguageSkillModel): void {
 
   }
 

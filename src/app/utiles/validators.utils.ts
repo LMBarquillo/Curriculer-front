@@ -24,7 +24,6 @@ export class CustomValidators {
   }
 
   public static isValidDate(control: FormControl) {
-    console.log(control.value);
     return moment(control.value, 'MM/DD/YYYY').isValid() ? null : { dateValid: false};
   }
 

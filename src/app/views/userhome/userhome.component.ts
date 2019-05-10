@@ -51,7 +51,7 @@ export class UserhomeComponent implements OnInit {
     forkJoin(this.userService.getUserData(),
              this.trainingService.getTrainings(),
              this.jobService.getJobs(),
-             this.languageService.getLanguages(),
+             this.languageService.getLanguageSkills(),
              this.skillService.getDigitalSkills().pipe(catchError(() => of(null))),
              this.skillService.getOtherSkills()).subscribe(
       ([user, trainings, jobs, languages, digitalSkills, otherSkills]) => {

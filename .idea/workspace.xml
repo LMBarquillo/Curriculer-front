@@ -2,9 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e8bb2f3c-0842-46d6-89ba-00e1f23245ef" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/models/language-skill.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/models/language.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/models/language.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/languages.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/languages.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utiles/constants.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/utiles/constants.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/languages/languages.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/languages/languages.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/languages/languages.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/languages/languages.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -75,20 +83,20 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="39" />
+          <entry key="HTML" value="40" />
           <entry key="JSON" value="8" />
           <entry key="Markdown" value="1" />
           <entry key="SCSS" value="17" />
-          <entry key="TypeScript" value="128" />
+          <entry key="TypeScript" value="137" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="11123" />
+          <entry key="HTML" value="11261" />
           <entry key="JSON" value="81" />
-          <entry key="PLAIN_TEXT" value="2801" />
+          <entry key="PLAIN_TEXT" value="2826" />
           <entry key="SCSS" value="1821" />
-          <entry key="TypeScript" value="20591" />
+          <entry key="TypeScript" value="21292" />
         </counts>
       </usages-collector>
     </session>
@@ -96,28 +104,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.html">
+        <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="24" selection-start-line="24" selection-end-line="53" selection-end-column="6" />
+            <state relative-caret-position="251">
+              <caret line="70" column="98" lean-forward="true" selection-start-line="70" selection-start-column="98" selection-end-line="70" selection-end-column="98" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="36" column="2" selection-start-line="36" selection-start-column="2" selection-end-line="52" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="760">
-              <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+            <state relative-caret-position="574">
+              <caret line="76" column="16" lean-forward="true" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -125,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="514">
-              <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+            <state relative-caret-position="551">
+              <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
               </folding>
@@ -135,10 +134,64 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/utiles/validators.utils.ts">
+        <entry file="file://$PROJECT_DIR$/src/app/services/languages.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+            <state relative-caret-position="300">
+              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/utiles/formats.utils.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/models/language.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/models/language-skill.model.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/utiles/constants.interface.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/app.routes.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -164,7 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/utiles/swal.ts" />
         <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.ts" />
         <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.scss" />
         <option value="$PROJECT_DIR$/src/app/components/common/layouts/basicLayout.component.ts" />
@@ -186,12 +238,8 @@
         <option value="$PROJECT_DIR$/src/app/services/auth-http.service.ts" />
         <option value="$PROJECT_DIR$/src/app/services/job.service.ts" />
         <option value="$PROJECT_DIR$/src/app/models/skill-grade.model.ts" />
-        <option value="$PROJECT_DIR$/src/app/models/language.model.ts" />
-        <option value="$PROJECT_DIR$/src/app/services/languages.service.ts" />
         <option value="$PROJECT_DIR$/src/app/models/digital-skill.model.ts" />
         <option value="$PROJECT_DIR$/src/app/models/skill.model.ts" />
-        <option value="$PROJECT_DIR$/src/app/app.routes.ts" />
-        <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" />
         <option value="$PROJECT_DIR$/.angular-cli.json" />
         <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.scss" />
         <option value="$PROJECT_DIR$/src/app/services/skills.service.ts" />
@@ -206,15 +254,20 @@
         <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.scss" />
         <option value="$PROJECT_DIR$/src/app/views/appviews.module.ts" />
         <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.html" />
-        <option value="$PROJECT_DIR$/src/app/utiles/constants.interface.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/formats.utils.ts" />
-        <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" />
         <option value="$PROJECT_DIR$/src/app/views/training/training.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/jobs/jobs.component.html" />
-        <option value="$PROJECT_DIR$/src/app/views/languages/languages.component.html" />
+        <option value="$PROJECT_DIR$/src/app/models/languageSkillModel.ts" />
+        <option value="$PROJECT_DIR$/src/app/models/language.model.ts" />
+        <option value="$PROJECT_DIR$/src/app/utiles/constants.interface.ts" />
+        <option value="$PROJECT_DIR$/src/app/services/languages.service.ts" />
         <option value="$PROJECT_DIR$/src/app/views/languages/languages.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/languages/languages.component.html" />
+        <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/utiles/validators.utils.ts" />
+        <option value="$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html" />
+        <option value="$PROJECT_DIR$/src/app/app.routes.ts" />
       </list>
     </option>
   </component>
@@ -263,6 +316,30 @@
               <item name="FRONT" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="navigation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
@@ -341,7 +418,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556652959001" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557510226135" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../BACK" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -425,7 +502,7 @@
       <workItem from="1557245849900" duration="8453000" />
       <workItem from="1557331295367" duration="2893000" />
       <workItem from="1557418470987" duration="9893000" />
-      <workItem from="1557506088063" duration="1440000" />
+      <workItem from="1557506088063" duration="3108000" />
     </task>
     <task id="LOCAL-00001" summary="Restructurados archivos. Página inicial en Login">
       <created>1555005564781</created>
@@ -721,11 +798,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557429877679</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Mostrar fichas de idiomas">
+      <created>1557508553332</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1557508553332</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="110097000" />
+    <option name="totallyTimeSpent" value="111765000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -817,7 +901,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Mostrar timeline de experiencia laboral en el home" />
     <MESSAGE value="Mostrar timeline de Idiomas en el home" />
     <MESSAGE value="Mostrar timeline de Competencias digitales" />
     <MESSAGE value="Finalizado home al añadir las otras habilidades" />
@@ -842,17 +925,11 @@
     <MESSAGE value="Solucionada la movida con los distintos formatos de fecha (me cago en los yankis)" />
     <MESSAGE value="Finalizado comprobaciones con los datepickers del modal del trabajo." />
     <MESSAGE value="Finalizada sección de Experiencia laboral." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalizada sección de Experiencia laboral." />
+    <MESSAGE value="Mostrar fichas de idiomas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mostrar fichas de idiomas" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/app/views/register/register.component.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/models/user-basic.model.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -905,20 +982,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/models/skill-grade.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/models/language.model.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/app.module.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -930,13 +993,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/services/languages.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -972,20 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.routes.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="27" column="50" lean-forward="true" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -1108,13 +1150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1800">
-          <caret line="109" column="3" selection-start-line="109" selection-start-column="3" selection-end-line="109" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/jobs/jobs.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="820">
@@ -1136,27 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/utiles/validators.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/utiles/constants.interface.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/utiles/formats.utils.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="12" column="107" selection-start-line="12" selection-start-column="107" selection-end-line="12" selection-end-column="107" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="634">
@@ -1173,25 +1187,95 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/training/training.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="24" selection-start-line="24" selection-end-line="53" selection-end-column="6" />
+        <state relative-caret-position="740">
+          <caret line="88" column="6" lean-forward="true" selection-start-line="55" selection-end-line="88" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/skill-grade.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/language.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/services/languages.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="574">
+          <caret line="76" column="16" lean-forward="true" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/utiles/formats.utils.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="70" column="98" lean-forward="true" selection-start-line="70" selection-start-column="98" selection-end-line="70" selection-end-column="98" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="47" column="47" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+        <state relative-caret-position="551">
+          <caret line="34" column="30" lean-forward="true" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/utiles/validators.utils.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="38" column="16" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="38" selection-end-column="16" />
+        <state relative-caret-position="320">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/models/language-skill.model.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/utiles/constants.interface.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="50" selection-start-line="16" selection-start-column="50" selection-end-line="16" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/components/common/navigation/navigation.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routes.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
         </state>
       </provider>
     </entry>
