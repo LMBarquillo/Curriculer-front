@@ -100,7 +100,6 @@ export class TrainingComponent implements OnInit {
               this.trainings = this.trainings.filter((value, index) => this.trainings.findIndex(item => item.id == ok) !== index);
               Swal.buildSwalWithoutCancel('Formación eliminada', 'Se eliminó la formación correctamente.', 'success');
             }, err => {
-              console.log(err);
               Swal.buildSwalWithoutCancel('Error', 'No se pudo eliminar la formación del usuario.', 'error');
             }
           );

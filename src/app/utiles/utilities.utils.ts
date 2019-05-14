@@ -1,4 +1,5 @@
 import {USERDATA} from './constants.interface';
+import {ErrorModel} from '../models/error.model';
 
 export class Utilities {
   public static compareNumber(a: number, b: number, invert?: boolean): number {
@@ -22,5 +23,10 @@ export class Utilities {
 
   public static getUser(): string {
     return localStorage.getItem(USERDATA).split("|")[0];
+  }
+
+  public static getErrorDetails(body: any): ErrorModel {
+    let details = body.error;
+    return details ? details : { code: 500, error: "Se produjo un error al realizar la operación"};
   }
 }

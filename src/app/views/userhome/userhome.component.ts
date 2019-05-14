@@ -11,13 +11,13 @@ import {Utilities} from '../../utiles/utilities.utils';
 import {JobsService} from '../../services/jobs.service';
 import {JobModel} from '../../models/job.model';
 import {LanguagesService} from '../../services/languages.service';
-import {LanguageModel} from '../../models/language.model';
 import {SkillsService} from '../../services/skills.service';
 import {DigitalSkillModel} from '../../models/digital-skill.model';
 import {SkillModel} from '../../models/skill.model';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../utiles/validators.utils';
 import {of} from 'rxjs/observable/of';
+import {LanguageSkillModel} from '../../models/language-skill.model';
 
 @Component({
   selector: 'app-userhome',
@@ -28,7 +28,7 @@ export class UserhomeComponent implements OnInit {
   public userData: UserModel;
   public trainings: TrainingModel[] = [];
   public jobs: JobModel[] = [];
-  public languages: LanguageModel[] = [];
+  public languages: LanguageSkillModel[] = [];
   public digitalSkills: DigitalSkillModel;
   public otherSkills: SkillModel[] = [];
   public userForm: FormGroup;

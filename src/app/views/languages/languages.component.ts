@@ -21,19 +21,18 @@ export class LanguagesComponent implements OnInit {
   public formGroup: FormGroup;
   public editing: number;
 
-  constructor(private languageService: LanguagesService) { }
+  constructor(private languageService: LanguagesService) {
+  }
 
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     forkJoin(this.languageService.getLanguageSkills(),
-             this.languageService.getLanguageGrades(),
-             this.languageService.getLanguages()).subscribe(
+      this.languageService.getLanguageGrades(),
+      this.languageService.getLanguages()).subscribe(
       ([skills, grades, languages]) => {
         this.languageSkills = skills;
         this.languages = languages.sort((a, b) => Utilities.compareNumber(a.id, b.id));
         this.languageGrades = grades.sort((a, b) => Utilities.compareNumber(a.id, b.id));
-
-        console.log(languages);
         this.resetFormGroup();
         Swal.close();
       }, err => {
@@ -47,7 +46,43 @@ export class LanguagesComponent implements OnInit {
     Swal.buildSwallWithoutButtons('Guardando', 'Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     this.formModal = false;
 
-    // TODO: CONTINUAR POR AQUÍ.
+    let language: LanguageSkillModel = {
+      id: null,
+      language: this.languages.filter(value => value.id == parseInt(this.formGroup.controls['language'].value))[0],
+      listening: this.languageGrades.filter(value => value.id == parseInt(this.formGroup.controls['listening'].value))[0],
+      reading: this.languageGrades.filter(value => value.id == parseInt(this.formGroup.controls['reading'].value))[0],
+      interaction: this.languageGrades.filter(value => value.id == parseInt(this.formGroup.controls['interaction'].value))[0],
+      production: this.languageGrades.filter(value => value.id == parseInt(this.formGroup.controls['production'].value))[0],
+      writing: this.languageGrades.filter(value => value.id == parseInt(this.formGroup.controls['writing'].value))[0]
+    };
+
+    if (this.editing > 0) {
+      language.id = this.editing;
+      this.languageService.updateLanguage(language).subscribe(
+        ok => {
+          let updated = this.languageSkills.find(item => item.id == ok.id);
+          updated.language = ok.language;
+          updated.listening = ok.listening;
+          updated.reading = ok.reading;
+          updated.interaction = ok.interaction;
+          updated.production = ok.production;
+          updated.writing = ok.writing;
+
+          Swal.buildSwalWithoutCancel('Idioma actualizado', 'Se actualizó correctamente su conocimiento del idioma ' + ok.language.language, 'success');
+        }, err => {
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
+        }
+      );
+    } else {
+      this.languageService.insertLanguage(language).subscribe(
+        ok => {
+          this.languageSkills.push(ok);
+          Swal.buildSwalWithoutCancel('Nuevo idioma añadido', 'Se añadió el idioma ' + ok.language.language + ' a su listado.', 'success');
+        }, err => {
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
+        }
+      );
+    }
   }
 
   public addLanguage(): void {
@@ -71,7 +106,7 @@ export class LanguagesComponent implements OnInit {
   }
 
   public deleteLanguage(language: LanguageSkillModel): void {
-    Swal.buildSwal('Eliminar idioma', '¿Está seguro de que desea eliminar su conocimiento del idioma ' + language.language + '?', 'question', 'SI', 'NO').then(
+    Swal.buildSwal('Eliminar idioma', '¿Está seguro de que desea eliminar su conocimiento del idioma ' + language.language.language + '?', 'question', 'SI', 'NO').then(
       yes => {
         if (yes.value) {
           this.languageService.deleteLanguage(language.id).subscribe(
@@ -79,8 +114,7 @@ export class LanguagesComponent implements OnInit {
               this.languageSkills = this.languageSkills.filter((value, index) => this.languageSkills.findIndex(item => item.id == ok) !== index);
               Swal.buildSwalWithoutCancel('Idioma eliminado', 'Se eliminó el idioma correctamente.', 'success');
             }, err => {
-              console.log(err);
-              Swal.buildSwalWithoutCancel('Error', 'No se pudo eliminar el idioma.', 'error');
+              Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
             }
           );
         }

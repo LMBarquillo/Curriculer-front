@@ -27,7 +27,7 @@ export class LanguagesService {
     return this.http.post(EP_LANGUAGE_SKILLS, model);
   }
 
-  public updateJob(model: LanguageSkillModel): Observable<LanguageSkillModel> {
+  public updateLanguage(model: LanguageSkillModel): Observable<LanguageSkillModel> {
     return this.http.put(EP_LANGUAGE_SKILLS, model);
   }
 
