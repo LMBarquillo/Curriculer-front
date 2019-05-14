@@ -76,7 +76,7 @@ export class UserhomeComponent implements OnInit {
         Swal.close();
       }, err => {
         console.log(err);
-        Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener los datos del usuario.', 'error');
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }
@@ -100,7 +100,7 @@ export class UserhomeComponent implements OnInit {
         Swal.buildSwalWithoutCancel('Usuario actualizado', 'Los datos se actualizaron correctamente.', 'success');
       }, err => {
         console.log(err);
-        Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar los datos del usuario.', 'error');
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }
@@ -139,7 +139,7 @@ export class UserhomeComponent implements OnInit {
               Swal.close();
             }, (err) => {
               console.log(err);
-              Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar el avatar del usuario.', 'error');
+              Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
             }
           );
         } else {
