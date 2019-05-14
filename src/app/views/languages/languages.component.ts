@@ -36,8 +36,7 @@ export class LanguagesComponent implements OnInit {
         this.resetFormGroup();
         Swal.close();
       }, err => {
-        console.log(err);
-        Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener la formación del usuario.', 'error');
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }

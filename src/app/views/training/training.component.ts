@@ -29,7 +29,7 @@ export class TrainingComponent implements OnInit {
         Swal.close();
       }, err => {
         console.log(err);
-        Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener la formación del usuario.', 'error');
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }
@@ -75,7 +75,7 @@ export class TrainingComponent implements OnInit {
 
           Swal.buildSwalWithoutCancel('Formación actualizada', 'Se actualizó la formación correctamente.', 'success');
         }, err => {
-          Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar la formación del usuario.', 'error');
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
         }
       );
     } else {
@@ -85,7 +85,7 @@ export class TrainingComponent implements OnInit {
           setTimeout(() => this.trainings = this.trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true)), 0);
           Swal.buildSwalWithoutCancel('Formación añadida', 'Se añadió la formación correctamente.', 'success');
         }, err => {
-          Swal.buildSwalWithoutCancel('Error', 'No se pudo insertar la formación del usuario.', 'error');
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
         }
       );
     }
@@ -100,7 +100,7 @@ export class TrainingComponent implements OnInit {
               this.trainings = this.trainings.filter((value, index) => this.trainings.findIndex(item => item.id == ok) !== index);
               Swal.buildSwalWithoutCancel('Formación eliminada', 'Se eliminó la formación correctamente.', 'success');
             }, err => {
-              Swal.buildSwalWithoutCancel('Error', 'No se pudo eliminar la formación del usuario.', 'error');
+              Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
             }
           );
         }

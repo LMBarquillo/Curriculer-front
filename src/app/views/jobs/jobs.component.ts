@@ -39,7 +39,7 @@ export class JobsComponent implements OnInit {
         Swal.close();
       }, err => {
         console.log(err);
-        Swal.buildSwalWithoutCancel('Error', 'No se pudo obtener la experiencia laboral del usuario.', 'error');
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }
@@ -92,8 +92,8 @@ export class JobsComponent implements OnInit {
           updated.activities = ok.activities;
 
           Swal.buildSwalWithoutCancel('Trabajo actualizado', 'Se actualizó su experiencia laboral correctamente.', 'success');
-        }, () => {
-          Swal.buildSwalWithoutCancel('Error', 'No se pudo actualizar su experiencia laboral.', 'error');
+        }, err => {
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
         }
       );
     } else {
@@ -102,8 +102,8 @@ export class JobsComponent implements OnInit {
           this.jobs.push(ok);
           setTimeout(() => this.jobs = this.jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true)), 0);
           Swal.buildSwalWithoutCancel('Nuevo trabajo añadido', 'Se añadió la experiencia laboral correctamente.', 'success');
-        }, () => {
-          Swal.buildSwalWithoutCancel('Error', 'No se pudo insertar el trabajo.', 'error');
+        }, err => {
+          Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
         }
       );
     }
@@ -119,7 +119,7 @@ export class JobsComponent implements OnInit {
               Swal.buildSwalWithoutCancel('Experiencia laboral eliminada', 'Se eliminó el trabajo correctamente.', 'success');
             }, err => {
               console.log(err);
-              Swal.buildSwalWithoutCancel('Error', 'No se pudo eliminar el trabajo del usuario.', 'error');
+              Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
             }
           );
         }
