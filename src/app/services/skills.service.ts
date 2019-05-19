@@ -27,6 +27,6 @@ export class SkillsService {
   }
 
   public deleteOtherSkill(id: number): Observable<number> {
-    return this.http.delete(EP_OTHER_SKILLS + '/id');
+    return this.http.delete(EP_OTHER_SKILLS + '/' + id);
   }
 }
