@@ -66,7 +66,7 @@
 
   <div class="toolbar-content">
     <div class="icon-advise" *ngIf="otherSkills?.length == 0"><i class="fa fa-arrow-right swinging"></i></div>
-    <div class="btn btn-primary" (click)="null"><i class="fa fa-plus"></i> Añadir habilidad</div>
+    <div class="btn btn-primary" (click)="addSkill()"><i class="fa fa-plus"></i> Añadir habilidad</div>
   </div>
 </div>
 
@@ -87,8 +87,8 @@
           </div>
           <div class="vertical-timeline-content">
             <h2>{{ skill.skill }}</h2>
-            <button class="btn btn-sm btn-danger" (click)="null"><i class="fa fa-times"></i></button>
-            <button class="btn btn-sm btn-success" (click)="null"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-sm btn-danger" (click)="deleteSkill(skill)"><i class="fa fa-times"></i></button>
+            <button class="btn btn-sm btn-success" (click)="editSkill(skill)"><i class="fa fa-pencil"></i></button>
           </div>
         </div>
       </div>
@@ -96,4 +96,29 @@
   </div>
 </div>
 
+<div class="modal" tabindex="-1" role="dialog" *ngIf="skillModal">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="skillModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos formativos</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="skillGroup">
+          <div class="form-group">
+            <label>Describe tu habilidad: <em>*</em></label>
+            <textarea class="form-control no-resize" formControlName="skill" placeholder="ej. 'Facilidad de aprendizaje'" rows="4"
+                      [ngClass]="{'invalid':!skillGroup.controls['skill'].valid}"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!skillGroup.valid" (click)="saveSkill()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
 

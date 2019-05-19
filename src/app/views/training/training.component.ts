@@ -56,7 +56,7 @@ export class TrainingComponent implements OnInit {
     Swal.buildSwallWithoutButtons('Guardando', 'Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     this.formModal = false;
     let training: TrainingModel = {
-      id: 0,
+      id: null,
       qualification: this.formGroup.controls['qualification'].value,
       center: this.formGroup.controls['center'].value,
       city: this.formGroup.controls['city'].value,

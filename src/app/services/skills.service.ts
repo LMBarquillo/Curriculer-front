@@ -17,4 +17,16 @@ export class SkillsService {
   public getOtherSkills(): Observable<SkillModel[]> {
     return this.http.get(EP_OTHER_SKILLS);
   }
+
+  public insertOtherSkill(skill: SkillModel): Observable<SkillModel> {
+    return this.http.post(EP_OTHER_SKILLS, skill);
+  }
+
+  public updateOtherSkill(skill: SkillModel): Observable<SkillModel> {
+    return this.http.put(EP_OTHER_SKILLS, skill);
+  }
+
+  public deleteOtherSkill(id: number): Observable<number> {
+    return this.http.delete(EP_OTHER_SKILLS + '/id');
+  }
 }
