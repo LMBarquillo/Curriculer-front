@@ -47,7 +47,7 @@
                 <p>Nivel {{ digitalSkills?.solving.grade }}</p>
               </div>
               <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
-                <button class="btn btn-sm btn-success" (click)="null"><i class="fa fa-pencil"></i></button>
+                <button class="btn btn-sm btn-success" (click)="editDigitalSkills()"><i class="fa fa-pencil"></i></button>
               </div>
             </div>
           </div>
@@ -96,6 +96,49 @@
   </div>
 </div>
 
+<div class="modal" tabindex="-1" role="dialog" *ngIf="digitalSkillsModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="digitalSkillsModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar habilidades digitales</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="digitalSkillGroup">
+          <div class="form-group">
+            <label>Tratamiento de la información: <em>*</em></label>
+            <select class="form-control" formGroupName="processing">
+              <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.processing.id">{{ item.grade }}</option>
+            </select>
+            <label>Comunicación: <em>*</em></label>
+            <select class="form-control" formGroupName="communication">
+              <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.communication.id">{{ item.grade }}</option>
+            </select>
+            <label>Creación de contenidos: <em>*</em></label>
+            <select class="form-control" formGroupName="contents">
+              <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.contents.id">{{ item.grade }}</option>
+            </select>
+            <label>Seguridad: <em>*</em></label>
+            <select class="form-control" formGroupName="safety">
+              <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.safety.id">{{ item.grade }}</option>
+            </select>
+            <label>Resolución de problemas: <em>*</em></label>
+            <select class="form-control" formGroupName="solving">
+              <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.solving.id">{{ item.grade }}</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!digitalSkillGroup.valid" (click)="saveDigitalSkills()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal" tabindex="-1" role="dialog" *ngIf="skillModal">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -104,7 +147,7 @@
       </div>
 
       <div class="modal-header">
-        <h3 class="modal-title">Editar datos formativos</h3>
+        <h3 class="modal-title">Editar habilidad</h3>
       </div>
       <div class="modal-body">
         <form role="form" [formGroup]="skillGroup">

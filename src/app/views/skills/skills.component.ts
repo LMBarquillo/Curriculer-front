@@ -6,6 +6,7 @@ import {DigitalSkillModel} from '../../models/digital-skill.model';
 import {SkillModel} from '../../models/skill.model';
 import {forkJoin} from 'rxjs/observable/forkJoin';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {SkillGradeModel} from '../../models/skill-grade.model';
 
 @Component({
   selector: 'app-skills',
@@ -13,9 +14,12 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
+  public skillGrades: SkillGradeModel[];
   public digitalSkills: DigitalSkillModel;
   public otherSkills: SkillModel[];
-  public skillModal: boolean;
+  public digitalSkillsModal: boolean = false;
+  public skillModal: boolean = false;
+  public digitalSkillGroup: FormGroup;
   public skillGroup: FormGroup;
   public editing: number;
 
@@ -25,11 +29,14 @@ export class SkillsComponent implements OnInit {
   ngOnInit() {
     Swal.buildSwallWithoutButtons('Cargando', 'Obteniendo datos. Por favor, espere<br/><i class="fa fa-spinner rotating"></i>', 'info');
     forkJoin(this.skillsService.getDigitalSkills(),
-      this.skillsService.getOtherSkills()).subscribe(
-      ([digitalSkills, otherSkills]) => {
+      this.skillsService.getOtherSkills(),
+      this.skillsService.getSkillGrades()).subscribe(
+      ([digitalSkills, otherSkills, skillGrades]) => {
         this.digitalSkills = digitalSkills;
         this.otherSkills = otherSkills;
-        //this.resetFormGroup();
+        this.skillGrades = skillGrades;
+        this.resetDigitalSkillGroup();
+        this.resetSkillFormGroup();
         Swal.close();
       }, err => {
         console.log(err);
@@ -43,6 +50,19 @@ export class SkillsComponent implements OnInit {
     this.skillModal = true;
   }
 
+  public editDigitalSkills(): void {
+    this.digitalSkillGroup = new FormGroup(
+      {
+        processing: new FormControl(this.digitalSkills.processing.id ? this.digitalSkills.processing.id : this.skillGrades[0].id, Validators.required),
+        communication: new FormControl(this.digitalSkills.communication.id ? this.digitalSkills.communication.id : this.skillGrades[0].id, Validators.required),
+        contents: new FormControl(this.digitalSkills.contents.id ? this.digitalSkills.contents.id : this.skillGrades[0].id, Validators.required),
+        safety: new FormControl(this.digitalSkills.safety.id ? this.digitalSkills.safety.id : this.skillGrades[0].id, Validators.required),
+        solving: new FormControl(this.digitalSkills.solving.id ? this.digitalSkills.solving.id : this.skillGrades[0].id, Validators.required)
+      }
+    );
+    this.digitalSkillsModal = true;
+  }
+
   public editSkill(skill: SkillModel): void {
     this.skillGroup = new FormGroup(
       {
@@ -51,6 +71,33 @@ export class SkillsComponent implements OnInit {
     );
     this.editing = skill.id;
     this.skillModal = true;
+  }
+
+  public saveDigitalSkills(): void {
+    let skill: DigitalSkillModel = {
+      processing: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['processing'].value)),
+      communication: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['communication'].value)),
+      contents: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['contents'].value)),
+      safety: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['safety'].value)),
+      solving: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['solving'].value))
+    };
+
+    // TODO: COMPROBAR PORQUÉ FALLA. SIEMPRE DEVUELVE EL ID 4.
+
+    console.log(this.digitalSkillGroup.controls['processing'].value);
+    console.log(parseInt(this.digitalSkillGroup.controls['processing'].value));
+
+    console.log(skill);
+
+    this.skillsService.saveDigitalSkills(skill).subscribe(
+      ok => {
+        this.digitalSkills = ok;
+        this.digitalSkillsModal = false;
+        Swal.buildSwalWithoutCancel('Habilidades digitales actualizadas', 'Se actualizó sus habilidades digitales correctamente.', 'success');
+      }, err => {
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
+      }
+    );
   }
 
   public saveSkill(): void {
@@ -101,10 +148,22 @@ export class SkillsComponent implements OnInit {
     )
   }
 
+  public resetDigitalSkillGroup(): void {
+    this.digitalSkillGroup = new FormGroup(
+      {
+        processing: new FormControl(this.skillGrades[0], Validators.required),
+        communication: new FormControl(this.skillGrades[0], Validators.required),
+        contents: new FormControl(this.skillGrades[0], Validators.required),
+        safety: new FormControl(this.skillGrades[0], Validators.required),
+        solving: new FormControl(this.skillGrades[0], Validators.required)
+      }
+    );
+  }
+
   public resetSkillFormGroup(): void {
     this.skillGroup = new FormGroup(
       {
-        skill: new FormControl('', Validators.required),
+        skill: new FormControl('', Validators.required)
       }
     );
     this.editing = 0;

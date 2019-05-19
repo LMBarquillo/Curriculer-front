@@ -17,3 +17,4 @@ export const EP_LANGUAGE_SKILLS: string = API + '/language/skill';
 export const EP_LANGUAGE_GRADES: string = API + '/language/grade';
 export const EP_DIGITAL_SKILLS: string = API + '/digitalskill';
 export const EP_OTHER_SKILLS: string = API + '/otherskill';
+export const EP_SKILL_GRADES: string = API + '/skill/grade';
