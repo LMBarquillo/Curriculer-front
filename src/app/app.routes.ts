@@ -8,6 +8,7 @@ import {TrainingComponent} from './views/training/training.component';
 import {JobsComponent} from './views/jobs/jobs.component';
 import {LanguagesComponent} from './views/languages/languages.component';
 import {SkillsComponent} from './views/skills/skills.component';
+import {CurriculumComponent} from './views/curriculum/curriculum.component';
 
 export const ROUTES: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -16,6 +17,7 @@ export const ROUTES: Routes = [
     children: [
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
+      {path: 'view', component: CurriculumComponent}
     ]
   },
   {

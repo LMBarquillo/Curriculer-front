@@ -20,6 +20,7 @@ import {JobsComponent} from './jobs/jobs.component';
 import {LanguagesComponent} from './languages/languages.component';
 import {SkillsComponent} from './skills/skills.component';
 import {BsDatepickerConfig, BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {CurriculumComponent} from './curriculum/curriculum.component';
 
 export function getDatepickerConfig(): BsDatepickerConfig {
   return Object.assign(new BsDatepickerConfig(), {
@@ -38,7 +39,8 @@ export function getDatepickerConfig(): BsDatepickerConfig {
     TrainingComponent,
     JobsComponent,
     LanguagesComponent,
-    SkillsComponent
+    SkillsComponent,
+    CurriculumComponent
   ],
   imports: [
     BrowserModule,
