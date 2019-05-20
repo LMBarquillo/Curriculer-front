@@ -82,13 +82,6 @@ export class SkillsComponent implements OnInit {
       solving: this.skillGrades.find(value => value.id == parseInt(this.digitalSkillGroup.controls['solving'].value))
     };
 
-    // TODO: COMPROBAR PORQUÉ FALLA. SIEMPRE DEVUELVE EL ID 4.
-
-    console.log(this.digitalSkillGroup.controls['processing'].value);
-    console.log(parseInt(this.digitalSkillGroup.controls['processing'].value));
-
-    console.log(skill);
-
     this.skillsService.saveDigitalSkills(skill).subscribe(
       ok => {
         this.digitalSkills = ok;

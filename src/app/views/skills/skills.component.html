@@ -110,23 +110,23 @@
         <form role="form" [formGroup]="digitalSkillGroup">
           <div class="form-group">
             <label>Tratamiento de la información: <em>*</em></label>
-            <select class="form-control" formGroupName="processing">
+            <select class="form-control" formControlName="processing">
               <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.processing.id">{{ item.grade }}</option>
             </select>
             <label>Comunicación: <em>*</em></label>
-            <select class="form-control" formGroupName="communication">
+            <select class="form-control" formControlName="communication">
               <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.communication.id">{{ item.grade }}</option>
             </select>
             <label>Creación de contenidos: <em>*</em></label>
-            <select class="form-control" formGroupName="contents">
+            <select class="form-control" formControlName="contents">
               <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.contents.id">{{ item.grade }}</option>
             </select>
             <label>Seguridad: <em>*</em></label>
-            <select class="form-control" formGroupName="safety">
+            <select class="form-control" formControlName="safety">
               <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.safety.id">{{ item.grade }}</option>
             </select>
             <label>Resolución de problemas: <em>*</em></label>
-            <select class="form-control" formGroupName="solving">
+            <select class="form-control" formControlName="solving">
               <option *ngFor="let item of skillGrades" [value]="item.id" [selected]="item.id == digitalSkills.solving.id">{{ item.grade }}</option>
             </select>
           </div>
