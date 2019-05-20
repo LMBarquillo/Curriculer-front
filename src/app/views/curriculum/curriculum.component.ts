@@ -35,7 +35,6 @@ export class CurriculumComponent implements AfterViewInit {
         this.curriculum = ok;
         Swal.close();
       }, err => {
-        console.log(err);
         Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
