@@ -18,6 +18,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CustomValidators} from '../../utiles/validators.utils';
 import {of} from 'rxjs/observable/of';
 import {LanguageSkillModel} from '../../models/language-skill.model';
+import {CurriculumService} from '../../services/curriculum.service';
 
 @Component({
   selector: 'app-userhome',
@@ -39,6 +40,7 @@ export class UserhomeComponent implements OnInit {
               private trainingService: TrainingsService,
               private jobService: JobsService,
               private languageService: LanguagesService,
+              private curriculumService: CurriculumService,
               private skillService: SkillsService) {
   }
 
@@ -75,7 +77,6 @@ export class UserhomeComponent implements OnInit {
         );
         Swal.close();
       }, err => {
-        console.log(err);
         Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
@@ -99,7 +100,6 @@ export class UserhomeComponent implements OnInit {
         this.userData = ok;
         Swal.buildSwalWithoutCancel('Usuario actualizado', 'Los datos se actualizaron correctamente.', 'success');
       }, err => {
-        console.log(err);
         Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
@@ -138,7 +138,6 @@ export class UserhomeComponent implements OnInit {
               this.userData.picture = reader.result;
               Swal.close();
             }, (err) => {
-              console.log(err);
               Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
             }
           );

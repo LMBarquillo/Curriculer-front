@@ -1,59 +1,43 @@
-import {Component, OnInit} from '@angular/core';
-import {UserModel} from '../../models/user.model';
-import {TrainingModel} from '../../models/training.model';
-import {JobModel} from '../../models/job.model';
-import {LanguageSkillModel} from '../../models/language-skill.model';
-import {DigitalSkillModel} from '../../models/digital-skill.model';
-import {SkillModel} from '../../models/skill.model';
-import {forkJoin} from 'rxjs/observable/forkJoin';
-import {catchError} from 'rxjs/operators';
-import {of} from 'rxjs/observable/of';
+import {AfterViewInit, Component} from '@angular/core';
+import {GlobalModel} from '../../models/global.model';
+import {CurriculumService} from '../../services/curriculum.service';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Swal} from '../../utiles/swal.utils';
 import {Utilities} from '../../utiles/utilities.utils';
-import {UserService} from '../../services/user.service';
-import {TrainingsService} from '../../services/trainings.service';
-import {JobsService} from '../../services/jobs.service';
-import {LanguagesService} from '../../services/languages.service';
-import {SkillsService} from '../../services/skills.service';
 
 @Component({
   selector: 'app-curriculum',
   templateUrl: './curriculum.component.html',
   styleUrls: ['./curriculum.component.scss']
 })
-export class CurriculumComponent implements OnInit {
-  public userData: UserModel;
-  public trainings: TrainingModel[] = [];
-  public jobs: JobModel[] = [];
-  public languages: LanguageSkillModel[] = [];
-  public digitalSkills: DigitalSkillModel;
-  public otherSkills: SkillModel[] = [];
+export class CurriculumComponent implements AfterViewInit {
+  public curriculum: GlobalModel;
 
-  constructor(private userService: UserService,
-              private trainingService: TrainingsService,
-              private jobService: JobsService,
-              private languageService: LanguagesService,
-              private skillService: SkillsService) { }
+  constructor(private curriculumService: CurriculumService,
+              private activatedRoute: ActivatedRoute,
+              private router: Router) {
+  }
 
-  ngOnInit() {
-    // Si usamos los mismos endpoints que en el home, habría que permitirlos en el interceptor.
-    // O bien podemos hacer un global y usarlo en ambos. --> Mejor opción hasta el momento.
+  ngAfterViewInit(): void {
+    this.activatedRoute.queryParams.subscribe(params => {
+      if (params['user']) {
+        this.loadCurriculum(params['user']);
+      } else {
+        this.router.navigate(['/login']);
+      }
+    });
+  }
 
-
-    forkJoin(this.userService.getUserData(),
-      this.trainingService.getTrainings(),
-      this.jobService.getJobs(),
-      this.languageService.getLanguageSkills(),
-      this.skillService.getDigitalSkills().pipe(catchError(() => of(null))),
-      this.skillService.getOtherSkills()).subscribe(
-      ([user, trainings, jobs, languages, digitalSkills, otherSkills]) => {
-        this.userData = user;
-        this.trainings = trainings.sort((a, b) => Utilities.compareNumber(a.promotion, b.promotion, true));
-        this.jobs = jobs.sort((a, b) => Utilities.compareDate(a.to, b.to, true));
-        this.languages = languages;
-        this.digitalSkills = digitalSkills;
-        this.otherSkills = otherSkills;
+  private loadCurriculum(user: string): void {
+    Swal.buildSwallWithoutButtons('Cargando', 'Leyendo información del curriculum. Por favor, espere.<br/><i class="fa fa-spinner rotating"></i>', 'info');
+    this.curriculumService.getCurriculum(user).subscribe(
+      ok => {
+        this.curriculum = ok;
+        Swal.close();
+      }, err => {
+        console.log(err);
+        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
   }
-
 }

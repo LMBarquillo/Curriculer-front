@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   private badLogin: boolean = false;
   private loginForm: FormGroup;
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService,
+              private router: Router) {}
 
   ngOnInit(): void {
     if(localStorage.getItem(USERDATA)) {
