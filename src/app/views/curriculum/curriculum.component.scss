@@ -2,7 +2,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: white;
-  padding: 15px;
+  padding: 15px 50px 15px 15px;
   box-shadow: 3px 3px 4px #999;
 }
 h2 {
@@ -23,5 +23,14 @@ h2 {
     background-color: #1AB394;
     width: 20px;
     height: 20px;
+  }
+}
+
+@media (max-width: 991px) {
+  .papersheet {
+    padding: 15px;
+  }
+  .lmobile {
+    text-align: left !important;
   }
 }

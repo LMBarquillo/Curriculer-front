@@ -1,10 +1,10 @@
 <div class="container papersheet animated fadeInDown" *ngIf="curriculum">
   <!-- Cabecera -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 ralign lmobile">
       <img src="assets/images/europass.png" alt="Europass logo" />
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 ralign">
+    <div class="col-xs-6 col-sm-6 col-md-9 col-lg-9 ralign">
       <a [routerLink]="['/']">
         <img src="assets/images/powered_by.png" alt="Curriculer logo" />
       </a>
@@ -13,7 +13,7 @@
 
   <!-- Información personal -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Información personal</h4>
       <img class="userpicture" [src]="curriculum.user.picture" alt="Fotografía del usuario" />
     </div>
@@ -32,7 +32,7 @@
 
   <!-- Experiencia profesional -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Experiencia profesional</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -56,7 +56,7 @@
 
   <!-- Educación y formación -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Educación y formación</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -64,7 +64,7 @@
     </div>
   </div>
   <div class="row m-b-md" *ngFor="let training of curriculum.trainings">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <p class="m-b-none">Promoción de {{ training.promotion }}</p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -75,7 +75,7 @@
 
   <!-- Idiomas -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Competencias lingüísticas</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -83,7 +83,7 @@
     </div>
   </div>
   <div class="row m-b-md" *ngFor="let language of curriculum.languages">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <p>{{ language.language.language }}</p>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -114,7 +114,7 @@
 
   <!-- Competencias digitales -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Competencias digitales</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -151,7 +151,7 @@
 
   <!-- Otras competencias -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Otras competencias</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
