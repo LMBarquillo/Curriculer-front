@@ -4,6 +4,9 @@
 .ralign {
   text-align: right;
 }
+.calign {
+  text-align: center;
+}
 .invalid {
   border: 1px solid maroon;
   box-shadow: 0 0 3px maroon;
@@ -122,6 +125,16 @@
 }
 bs-datepicker-container {
   z-index: 5000;
+}
+@media (min-width: 1200px) {
+  .col-lg-2-5 {
+    width: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-2-5 {
+    width: 20%;
+  }
 }
 
 @media (max-width: 767px) {

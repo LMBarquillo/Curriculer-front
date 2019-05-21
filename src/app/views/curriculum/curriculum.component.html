@@ -1,10 +1,10 @@
 <div class="container papersheet animated fadeInDown" *ngIf="curriculum">
   <!-- Cabecera -->
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
       <img src="assets/images/europass.png" alt="Europass logo" />
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ralign">
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 ralign">
       <img src="assets/images/powered_by.png" alt="Curriculer logo" />
     </div>
   </div>
@@ -12,7 +12,7 @@
   <!-- Información personal -->
   <div class="row m-t-md">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
-      <h4>Información personal</h4>
+      <h4 class="themed">Información personal</h4>
       <img class="userpicture" [src]="curriculum.user.picture" alt="Fotografía del usuario" />
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
@@ -31,7 +31,7 @@
   <!-- Experiencia profesional -->
   <div class="row m-t-md">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
-      <h4>Experiencia profesional</h4>
+      <h4 class="themed">Experiencia profesional</h4>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
       <div class="heading-line"><div class="right-square"></div></div>
@@ -51,6 +51,120 @@
       <h5><span class="themed">Sector de actividad: </span>{{ job.sector.sector }}</h5>
     </div>
   </div>
+
+  <!-- Educación y formación -->
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <h4 class="themed">Educación y formación</h4>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="heading-line"><div class="right-square"></div></div>
+    </div>
+  </div>
+  <div class="row m-b-md" *ngFor="let training of curriculum.trainings">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <p class="m-b-none">Promoción de {{ training.promotion }}</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <h3>{{ training.qualification }}</h3>
+      <p>{{ training.center }} <em>{{ training.city }}</em></p>
+    </div>
+  </div>
+
+  <!-- Idiomas -->
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <h4 class="themed">Competencias lingüísticas</h4>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="heading-line"><div class="right-square"></div></div>
+    </div>
+  </div>
+  <div class="row m-b-md" *ngFor="let language of curriculum.languages">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <p>{{ language.language.language }}</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Compresión auditiva</h5>
+          <p>Nivel {{ language.listening.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Comprensión lectora</h5>
+          <p>Nivel {{ language.reading.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Interacción oral</h5>
+          <p>Nivel {{ language.interaction.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Expresión oral</h5>
+          <p>Nivel {{ language.production.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Expresión escrita</h5>
+          <p>Nivel {{ language.writing.grade }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Competencias digitales -->
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <h4 class="themed">Competencias digitales</h4>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="heading-line"><div class="right-square"></div></div>
+    </div>
+  </div>
+  <div class="row m-b-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Tratamiento de la información</h5>
+          <p>Nivel {{ curriculum.digitalSkills.processing.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Comunicación</h5>
+          <p>Nivel {{ curriculum.digitalSkills.communication.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Creación de contenidos</h5>
+          <p>Nivel {{ curriculum.digitalSkills.contents.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Seguridad</h5>
+          <p>Nivel {{ curriculum.digitalSkills.safety.grade }}</p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-2-5 col-lg-2-5 calign">
+          <h5 class="themed">Resolución de problemas</h5>
+          <p>Nivel {{ curriculum.digitalSkills.solving.grade }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Otras competencias -->
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <h4 class="themed">Otras competencias</h4>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="heading-line"><div class="right-square"></div></div>
+    </div>
+  </div>
+  <div class="row m-b-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <ul>
+        <li *ngFor="let skill of curriculum.otherSkills">{{ skill.skill }}</li>
+      </ul>
+    </div>
+  </div>
+
 
   <hr/>
   <div class="row">
