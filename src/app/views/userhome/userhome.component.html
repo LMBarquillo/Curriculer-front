@@ -44,7 +44,8 @@
       </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      <h2 class="no-margin-top"><i class="fa fa-link"></i> http://www.curriculer.es/view/<strong>{{ getUser() }}</strong></h2>
+      <h5>Tu curriculum público puede verse en:</h5>
+      <h2 class="no-margin-top"><i class="fa fa-link"></i> <a [routerLink]="['/view']" [queryParams]="{'user': getUser()}">http://www.curriculer.es/view/<strong>{{ getUser() }}</strong></a></h2>
     </div>
   </div>
 
