@@ -19,6 +19,7 @@ import {CustomValidators} from '../../utiles/validators.utils';
 import {of} from 'rxjs/observable/of';
 import {LanguageSkillModel} from '../../models/language-skill.model';
 import {CurriculumService} from '../../services/curriculum.service';
+import {integerInputFilter} from '../../utiles/functions.utils';
 
 @Component({
   selector: 'app-userhome',
@@ -26,6 +27,7 @@ import {CurriculumService} from '../../services/curriculum.service';
   styleUrls: ['./userhome.component.scss']
 })
 export class UserhomeComponent implements OnInit {
+  public numberFilter = integerInputFilter;
   public userData: UserModel;
   public trainings: TrainingModel[] = [];
   public jobs: JobModel[] = [];
@@ -70,6 +72,7 @@ export class UserhomeComponent implements OnInit {
             surname: new FormControl(this.userData.surname, Validators.required),
             address: new FormControl(this.userData.address),
             city: new FormControl(this.userData.city),
+            phone: new FormControl(this.userData.phone, [Validators.required, CustomValidators.isIntegerNumber]),
             email: new FormControl(this.userData.email, [Validators.required, CustomValidators.isValidEmail]),
             nationality: new FormControl(this.userData.nationality),
             birthdate: new FormControl(this.userData.birthdate ? this.dateToForm(this.userData.birthdate) : "", CustomValidators.isValidDate)
@@ -88,6 +91,7 @@ export class UserhomeComponent implements OnInit {
       surname: this.userForm.controls['surname'].value,
       address: this.userForm.controls['address'].value,
       city: this.userForm.controls['city'].value,
+      phone: this.userForm.controls['phone'].value,
       email: this.userForm.controls['email'].value,
       nationality: this.userForm.controls['nationality'].value,
       birthdate: new Date(this.userForm.controls['birthdate'].value),

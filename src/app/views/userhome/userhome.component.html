@@ -36,7 +36,10 @@
         <h4>{{ userData.address }} <em>{{ userData.city }}</em></h4>
         <h4>{{ getDate(userData.birthdate) }}</h4>
         <h3 class="no-margin-top">
-          {{ userData.email}}
+          <i class="fa fa-phone-square"></i> {{ userData.phone}}
+        </h3>
+        <h3 class="no-margin-top">
+          <i class="fa fa-envelope-square"></i> {{ userData.email}}
         </h3>
       </div>
     </div>
@@ -225,17 +228,27 @@
         <form role="form" [formGroup]="userForm">
           <div class="form-group">
             <label>Nombre: <em>*</em></label>
-            <input type="text" class="form-control" placeholder="Nombre" formControlName="name" [ngClass]="{'invalid':!userForm.controls['name'].valid}">
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="name" maxlength="60"
+                   [ngClass]="{'invalid':!userForm.controls['name'].valid}">
             <label>Apellidos: <em>*</em></label>
-            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname" [ngClass]="{'invalid':!userForm.controls['surname'].valid}">
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname" maxlength="100"
+                   [ngClass]="{'invalid':!userForm.controls['surname'].valid}">
             <label>Dirección:</label>
-            <input type="text" class="form-control" placeholder="Dirección" formControlName="address" [ngClass]="{'invalid':!userForm.controls['address'].valid}">
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="address" maxlength="150"
+                   [ngClass]="{'invalid':!userForm.controls['address'].valid}">
             <label>Ciudad:</label>
-            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city" [ngClass]="{'invalid':!userForm.controls['city'].valid}">
+            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city" maxlength="80"
+                   [ngClass]="{'invalid':!userForm.controls['city'].valid}">
+            <label>Teléfono: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Teléfono" formControlName="phone" maxlength="15"
+                   (keypress)="numberFilter($event)"
+                   [ngClass]="{'invalid':!userForm.controls['phone'].valid}">
             <label>E-mail: <em>*</em></label>
-            <input type="text" class="form-control" placeholder="E-mail" formControlName="email" [ngClass]="{'invalid':!userForm.controls['email'].valid}">
+            <input type="text" class="form-control" placeholder="E-mail" formControlName="email" maxlength="60"
+                   [ngClass]="{'invalid':!userForm.controls['email'].valid}">
             <label>Nacionalidad: </label>
-            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality" [ngClass]="{'invalid':!userForm.controls['nationality'].valid}">
+            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality" maxlength="45"
+                   [ngClass]="{'invalid':!userForm.controls['nationality'].valid}">
             <label>Fecha de nacimiento: <em>*</em></label>
             <input type="text" class="form-control" placeholder="Datepicker" formControlName="birthdate" bsDatepicker
                    BsDatepickerConfig [ngClass]="{'invalid':!userForm.controls['birthdate'].valid}">
