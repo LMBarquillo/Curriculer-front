@@ -4,6 +4,7 @@ import {CurriculumService} from '../../services/curriculum.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Swal} from '../../utiles/swal.utils';
 import {Utilities} from '../../utiles/utilities.utils';
+import {Formats} from '../../utiles/formats.utils';
 
 @Component({
   selector: 'app-curriculum',
@@ -38,5 +39,9 @@ export class CurriculumComponent implements AfterViewInit {
         Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
       }
     );
+  }
+
+  public getDate(date: string): string {
+    return Formats.formatDate(date);
   }
 }

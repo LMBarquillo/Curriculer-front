@@ -2,27 +2,55 @@
   <!-- Cabecera -->
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-      Europass
+      <img src="assets/images/europass.png" alt="Europass logo" />
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ralign">
-      Powered by
+      <img src="assets/images/powered_by.png" alt="Curriculer logo" />
     </div>
   </div>
 
   <!-- Información personal -->
   <div class="row m-t-md">
-    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
       <h4>Información personal</h4>
+      <img class="userpicture" [src]="curriculum.user.picture" alt="Fotografía del usuario" />
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 border-left">
-      <h2>{{ curriculum.user.name + ' ' + curriculum.user.surname }}</h2>
-      <h5><i class="fa fa-map-marker"></i> {{ curriculum.user.address }}</h5>
-      <h5><i class="fa fa-phone"></i> "CAGO EN TO"</h5>
-      <h5><i class="fa fa-envelope"></i> {{ curriculum.user.email }}</h5>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <h2><strong>{{ curriculum.user.name + ' ' + curriculum.user.surname }}</strong></h2>
+      <h5><i class="fa fa-map-marker themed m-r-sm"></i> {{ curriculum.user.address }} <em>{{ curriculum.user.city }}</em></h5>
+      <h5><i class="fa fa-phone themed m-r-sm"></i> {{ curriculum.user.phone }}</h5>
+      <h5><i class="fa fa-envelope themed m-r-sm"></i> {{ curriculum.user.email }}</h5>
+
+      <div class="birth-nationality m-t-md">
+        <span class="themed">Fecha de nacimiento:</span> {{ getDate(curriculum.user.birthdate)}} <span class="themed">&#124; Nacionalidad:</span> {{ curriculum.user.nationality }}
+      </div>
 
     </div>
   </div>
 
+  <!-- Experiencia profesional -->
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <h4>Experiencia profesional</h4>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <div class="heading-line"><div class="right-square"></div></div>
+    </div>
+  </div>
+  <div class="row m-b-md" *ngFor="let job of curriculum.jobs">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign">
+      <p class="m-b-none">Desde {{ getDate(job.from) }}</p>
+      <p class="m-b-none">Hasta {{ job.to ? getDate(job.to) : 'la actualidad' }}</p>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
+      <h3>{{ job.employer }}</h3>
+      <p>{{ job.city }}</p>
+      <ul>
+        <li *ngFor="let activity of job.activities">{{ activity.activity }}</li>
+      </ul>
+      <h5><span class="themed">Sector de actividad: </span>{{ job.sector.sector }}</h5>
+    </div>
+  </div>
 
   <hr/>
   <div class="row">
