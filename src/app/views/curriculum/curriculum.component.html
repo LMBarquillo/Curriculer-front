@@ -15,15 +15,15 @@
   <div class="row m-t-md">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Información personal</h4>
-      <img class="userpicture" [src]="curriculum.user.picture" alt="Fotografía del usuario" />
+      <img *ngIf="curriculum.user.picture" class="userpicture" [src]="curriculum.user.picture" alt="Fotografía del usuario" />
     </div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
       <h2><strong>{{ curriculum.user.name + ' ' + curriculum.user.surname }}</strong></h2>
-      <h5><i class="fa fa-map-marker themed m-r-sm"></i> {{ curriculum.user.address }} <em>{{ curriculum.user.city }}</em></h5>
-      <h5><i class="fa fa-phone themed m-r-sm"></i> {{ curriculum.user.phone }}</h5>
+      <h5 *ngIf="curriculum.user.city.length > 0"><i class="fa fa-map-marker themed m-r-sm"></i> {{ curriculum.user.address }} <em>{{ curriculum.user.city }}</em></h5>
+      <h5 *ngIf="curriculum.user.phone.length > 0"><i class="fa fa-phone themed m-r-sm"></i> {{ curriculum.user.phone }}</h5>
       <h5><i class="fa fa-envelope themed m-r-sm"></i> {{ curriculum.user.email }}</h5>
 
-      <div class="birth-nationality m-t-md">
+      <div class="birth-nationality m-t-md" *ngIf="curriculum.user.birthdate">
         <span class="themed">Fecha de nacimiento:</span> {{ getDate(curriculum.user.birthdate)}} <span class="themed">&#124; Nacionalidad:</span> {{ curriculum.user.nationality }}
       </div>
 
@@ -31,7 +31,7 @@
   </div>
 
   <!-- Experiencia profesional -->
-  <div class="row m-t-md">
+  <div class="row m-t-md" *ngIf="curriculum.jobs.length > 0">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Experiencia profesional</h4>
     </div>
@@ -55,7 +55,7 @@
   </div>
 
   <!-- Educación y formación -->
-  <div class="row m-t-md">
+  <div class="row m-t-md" *ngIf="curriculum.trainings.length > 0">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Educación y formación</h4>
     </div>
@@ -74,7 +74,7 @@
   </div>
 
   <!-- Idiomas -->
-  <div class="row m-t-md">
+  <div class="row m-t-md" *ngIf="curriculum.languages.length > 0">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Competencias lingüísticas</h4>
     </div>
@@ -113,7 +113,7 @@
   </div>
 
   <!-- Competencias digitales -->
-  <div class="row m-t-md">
+  <div class="row m-t-md" *ngIf="curriculum.digitalSkills">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Competencias digitales</h4>
     </div>
@@ -121,7 +121,7 @@
       <div class="heading-line"><div class="right-square"></div></div>
     </div>
   </div>
-  <div class="row m-b-md">
+  <div class="row m-b-md" *ngIf="curriculum.digitalSkills">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3"></div>
     <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 border-left">
       <div class="row">
@@ -150,7 +150,7 @@
   </div>
 
   <!-- Otras competencias -->
-  <div class="row m-t-md">
+  <div class="row m-t-md" *ngIf="curriculum.otherSkills.length > 0">
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 ralign lmobile">
       <h4 class="themed">Otras competencias</h4>
     </div>
