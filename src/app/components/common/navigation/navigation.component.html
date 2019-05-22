@@ -1,0 +1,30 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+  <div class="sidebar-collapse">
+    <ul class="nav metismenu" id="side-menu">
+      <li class="nav-header">
+        <div class="profile-element" dropdown>
+          <img class="side-logo" src="assets/images/logo_mini_white.png" alt="Logo Curriculer">
+        </div>
+        <div class="logo-element">
+          <img class="mini-logo" src="assets/images/cap_white.png" alt="Logo Curriculer">
+        </div>
+      </li>
+      <li [ngClass]="{active: activeRoute('home')}">
+        <a [routerLink]="['/home']"><i class="fa fa-user"></i> <span class="nav-label">Datos personales</span></a>
+      </li>
+      <li [ngClass]="{active: activeRoute('training')}">
+        <a [routerLink]="['/training']"><i class="fa fa-graduation-cap"></i> <span class="nav-label">Formación</span></a>
+      </li>
+      <li [ngClass]="{active: activeRoute('jobs')}">
+        <a [routerLink]="['/jobs']"><i class="fa fa-briefcase"></i> <span class="nav-label">Experiencia profesional</span></a>
+      </li>
+      <li [ngClass]="{active: activeRoute('languages')}">
+        <a [routerLink]="['/languages']"><i class="fa fa-comments-o"></i> <span class="nav-label">Idiomas</span></a>
+      </li>
+      <li [ngClass]="{active: activeRoute('skills')}">
+        <a [routerLink]="['/skills']"><i class="fa fa-laptop"></i> <span class="nav-label">Habilidades</span></a>
+      </li>
+    </ul>
+
+  </div>
+</nav>

@@ -1,0 +1,264 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Resumen y datos personales</h2>
+    <ol class="breadcrumb">
+      <li>
+        Inicio
+      </li>
+      <li class="active">
+        <strong>Datos personales</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight" *ngIf="userData">
+  <div class="row m-b-lg m-t-lg">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <div class="profile-image">
+        <img src="assets/images/user.png" class="img-circle circle-border m-b-md" alt="profile" *ngIf="!userData.picture || userData.picture?.length == 0">
+        <img [src]="userData.picture" class="m-b-md" alt="profile" *ngIf="userData.picture?.length > 0">
+        <div class="change-image" (click)="openFileLoader()">
+          <i class="fa fa-pencil"></i>
+        </div>
+        <input id="fileloader" type="file" style="display: none;" (change)="loadImage($event)" accept=".jpeg, .jpg" />
+      </div>
+      <div class="profile-info">
+        <h2 class="no-margin-top">
+          {{ userData.name + ' ' + userData.surname }}
+          <button class="btn btn-default btn-mini-edit" (click)="userInfoModal = true">
+            <i class="fa fa-pencil"></i>
+          </button>
+        </h2>
+        <h4>{{ userData.address }} <em>{{ userData.city }}</em></h4>
+        <h4>{{ getDate(userData.birthdate) }}</h4>
+        <h3 class="no-margin-top">
+          <i class="fa fa-phone-square"></i> {{ userData.phone}}
+        </h3>
+        <h3 class="no-margin-top">
+          <i class="fa fa-envelope-square"></i> {{ userData.email}}
+        </h3>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h5>Tu curriculum público puede verse en:</h5>
+      <h2 class="no-margin-top"><i class="fa fa-link"></i> <a [routerLink]="['/view']" [queryParams]="{'user': getUser()}">http://www.curriculer.es/view/<strong>{{ getUser() }}</strong></a></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="ibox">
+        <div class="ibox-content inspinia-timeline">
+          <h3>Tu formación</h3>
+          <hr/>
+
+          <div class="alert alert-danger" role="alert" *ngIf="trainings.length == 0">
+            <h4 class="alert-heading">No has configurado tu formación</h4>
+            <p>Dirígete al apartado de "Formación" para introducir los datos de la formación que has recibido.</p>
+          </div>
+
+          <div class="timeline-item" *ngFor="let training of trainings">
+            <div class="row">
+              <div class="col-xs-2 year-column">
+                <i class="fa fa-graduation-cap"></i>
+                {{ training.promotion }}
+              </div>
+              <div class="col-xs-10 content no-top-border">
+                <p class="m-b-xs"><strong>{{ training.qualification }}</strong></p>
+                <p>{{ training.center }} <br/><small>{{ training.city }}</small></p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="ibox">
+        <div class="ibox-content inspinia-timeline">
+          <h3>Experiencia profesional</h3>
+          <hr/>
+
+          <div class="alert alert-danger" role="alert" *ngIf="jobs.length == 0">
+            <h4 class="alert-heading">No has especificado ninguna experiencia laboral</h4>
+            <p>Dirígete al apartado de "Experiencia profesional" para introducir los datos de los trabajos que has desarrollado.</p>
+          </div>
+
+          <div class="timeline-item" *ngFor="let job of jobs">
+            <div class="row">
+              <div class="col-xs-4 col-sm-3 year-column">
+                <i class="fa fa-wrench"></i>
+                <div class="job-dates" *ngIf="job.to">
+                  Desde <br/>{{ getDate(job.from) }}<br/>
+                  Hasta <br/>{{ getDate(job.to) }}
+                </div>
+                <div class="job-dates" *ngIf="!job.to">
+                  Actualmente, desde {{ getDate(job.from) }}
+                </div>
+              </div>
+              <div class="col-xs-8 col-sm-9 content no-top-border">
+                <p class="m-b-xs"><strong>{{ job.employer }}</strong></p>
+                <p>{{ job.city }}</p>
+                <ul>
+                  <li *ngFor="let activity of job.activities">
+                    <small>{{ activity.activity }}</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="ibox">
+        <div class="ibox-content inspinia-timeline">
+          <h3>Idiomas</h3>
+          <hr/>
+
+          <div class="alert alert-danger" role="alert" *ngIf="languages.length == 0">
+            <h4 class="alert-heading">No has añadido conocimiento de idiomas</h4>
+            <p>Dirígete al apartado de "Idiomas" para reflejar aquellos que dominas, además de tu idioma materno.</p>
+          </div>
+
+          <div class="timeline-item" *ngFor="let lang of languages">
+            <div class="row">
+              <div class="col-xs-2 year-column">
+                <i class="fa fa-comments-o"></i>
+              </div>
+              <div class="col-xs-10 content no-top-border">
+                <p class="m-b-xs"><strong>{{ lang.language.language }}</strong></p>
+                <p>Niveles de habilidad:</p>
+                <ul>
+                  <li>
+                    <small>Comprensión: {{ lang.listening.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Lectura: {{ lang.reading.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Escritura: {{ lang.writing.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Conversación: {{ lang.interaction.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Desarrollo: {{ lang.production.grade }}</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="ibox">
+        <div class="ibox-content inspinia-timeline">
+          <h3>Habilidades</h3>
+          <hr/>
+
+          <h4>Competencias digitales</h4>
+          <div class="alert alert-danger" role="alert" *ngIf="!digitalSkills">
+            <h4 class="alert-heading">No has añadido competencias digitales</h4>
+            <p>Dirígete al apartado de "Habilidades" para añadir tus competencias de ámbito tecnológico.</p>
+          </div>
+
+          <div class="timeline-item" *ngIf="digitalSkills">
+            <div class="row">
+              <div class="col-xs-2 year-column">
+                <i class="fa fa-laptop"></i>
+              </div>
+              <div class="col-xs-10 content no-top-border">
+                <p>Niveles de habilidad:</p>
+                <ul>
+                  <li>
+                    <small>Tratamiento de la información: Nivel {{ digitalSkills.processing.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Comunicación: Nivel {{ digitalSkills.communication.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Creación de contenidos: Nivel {{ digitalSkills.contents.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Seguridad: Nivel {{ digitalSkills.safety.grade }}</small>
+                  </li>
+                  <li>
+                    <small>Resolución de problemas: Nivel {{ digitalSkills.solving.grade }}</small>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <h4>Otras habilidades</h4>
+          <div class="alert alert-danger" role="alert" *ngIf="otherSkills.length == 0">
+            <h4 class="alert-heading">No has añadido tus habilidades</h4>
+            <p>Dirígete al apartado de "Habilidades" para añadir tus habilidades adicionales.</p>
+          </div>
+
+          <ul>
+            <li *ngFor="let skill of otherSkills">
+              <small>{{ skill.skill }}</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="userInfoModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="userInfoModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos del usuario</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="userForm">
+          <div class="form-group">
+            <label>Nombre: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Nombre" formControlName="name" maxlength="60"
+                   [ngClass]="{'invalid':!userForm.controls['name'].valid}">
+            <label>Apellidos: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Apellidos" formControlName="surname" maxlength="100"
+                   [ngClass]="{'invalid':!userForm.controls['surname'].valid}">
+            <label>Dirección:</label>
+            <input type="text" class="form-control" placeholder="Dirección" formControlName="address" maxlength="150"
+                   [ngClass]="{'invalid':!userForm.controls['address'].valid}">
+            <label>Ciudad:</label>
+            <input type="text" class="form-control" placeholder="Ciudad" formControlName="city" maxlength="80"
+                   [ngClass]="{'invalid':!userForm.controls['city'].valid}">
+            <label>Teléfono: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Teléfono" formControlName="phone" maxlength="15"
+                   (keypress)="numberFilter($event)"
+                   [ngClass]="{'invalid':!userForm.controls['phone'].valid}">
+            <label>E-mail: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="E-mail" formControlName="email" maxlength="60"
+                   [ngClass]="{'invalid':!userForm.controls['email'].valid}">
+            <label>Nacionalidad: </label>
+            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality" maxlength="45"
+                   [ngClass]="{'invalid':!userForm.controls['nationality'].valid}">
+            <label>Fecha de nacimiento: <em>*</em></label>
+            <input type="text" class="form-control" placeholder="Datepicker" formControlName="birthdate" bsDatepicker
+                   BsDatepickerConfig [ngClass]="{'invalid':!userForm.controls['birthdate'].valid}">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!userForm.valid" (click)="saveProfile()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>

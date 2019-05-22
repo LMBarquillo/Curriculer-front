@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { detectBody } from '../../../app.helpers';
+import {Component, OnInit} from '@angular/core';
+import {detectBody} from '../../../app.helpers';
+import {USERDATA} from '../../../utiles/constants.interface';
+import {Router} from '@angular/router';
 
 declare var jQuery:any;
 
@@ -10,14 +12,23 @@ declare var jQuery:any;
     '(window:resize)': 'onResize()'
   }
 })
-export class BasicLayoutComponent {
+export class BasicLayoutComponent implements OnInit {
 
-  public ngOnInit():any {
-    detectBody();
+  constructor(private router: Router) {
   }
 
   public onResize(){
     detectBody();
   }
 
+  ngOnInit(): void {
+    detectBody();
+    this.checkUser();
+  }
+
+  private checkUser() {
+    if(localStorage.getItem(USERDATA) == null) {
+      this.router.navigate(['']);
+    }
+  }
 }

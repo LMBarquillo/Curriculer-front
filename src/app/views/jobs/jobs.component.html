@@ -1,0 +1,134 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <h2>Experiencia profesional</h2>
+    <ol class="breadcrumb">
+      <li>
+        Inicio
+      </li>
+      <li class="active">
+        <strong>Trabajos</strong>
+      </li>
+    </ol>
+  </div>
+  <div class="col-lg-2">
+
+  </div>
+</div>
+
+<div class="toolbar">
+  <div class="toolbar-content">
+    <div class="icon-advise" *ngIf="jobs.length == 0"><i class="fa fa-arrow-right swinging"></i></div>
+    <div class="btn btn-primary" (click)="addJob()"><i class="fa fa-plus"></i> Añadir experiencia</div>
+  </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12" *ngIf="jobs.length == 0">
+      <div class="alert alert-danger" role="alert" >
+        <h4 class="alert-heading">No has añadido experiencia laboral</h4>
+        <p>Si posees experiencia en trabajos anteriores o actuales, añádelos en esta sección.</p>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let job of jobs">
+      <div class="light-timeline no-margins">
+        <div class="vertical-timeline-block">
+          <div class="vertical-timeline-icon navy-bg">
+            <i class="fa fa-wrench"></i>
+          </div>
+          <div class="vertical-timeline-content">
+            <h2>{{ job.employer }}</h2>
+            <h3>{{ job.city }}</h3>
+            <h4>{{ job.sector.sector }}</h4>
+            <hr/>
+            <h3>Actividades realizadas:</h3>
+            <ul>
+              <li *ngFor="let activity of job.activities">{{ activity.activity }}</li>
+            </ul>
+            <hr/>
+            <button class="btn btn-sm btn-danger" (click)="deleteJob(job)"><i class="fa fa-times"></i></button>
+            <button class="btn btn-sm btn-success" (click)="editJob(job)"><i class="fa fa-pencil"></i></button>
+            <span class="vertical-date">
+              <small><span *ngIf="!job.to">Actualmente, </span>Desde {{ getDate(job.from) }}</small><br/>
+              <small *ngIf="job.to">Hasta {{ getDate(job.to) }}</small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" *ngIf="formModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="close-button" (click)="formModal = false">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </div>
+
+      <div class="modal-header">
+        <h3 class="modal-title">Editar datos de tu experiencia laboral</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" [formGroup]="formGroup">
+          <div class="form-group">
+            <label>Empresa contratante: <em>*</em></label>
+            <input type="text" class="form-control"
+                   formControlName="employer" [ngClass]="{'invalid':!formGroup.controls['employer'].valid}">
+            <label>Ciudad: <em>*</em></label>
+            <input type="text" class="form-control"
+                   formControlName="city" [ngClass]="{'invalid':!formGroup.controls['city'].valid}">
+            <div class="row">
+              <div class="col-xs-6">
+                <label>Fecha inicio: <em>*</em></label>
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="from"
+                       [ngClass]="{'invalid':!formGroup.controls['from'].valid}">
+              </div>
+              <div class="col-xs-6" *ngIf="!currentJob">
+                <label>Fecha fin: <em>*</em></label>
+                <input type="text" class="form-control" bsDatepicker BsDatepickerConfig formControlName="to"
+                       [ngClass]="{'invalid':!formGroup.controls['to'].valid}">
+              </div>
+            </div>
+            <div class="row m-b-sm">
+              <div class="col-xs-12 cb-container">
+                <div class="custom-checkbox center-in-row" (click)="toggleDateTo()" [ngClass]="{'custom-checkbox-active':currentJob}">
+                  <i class="fa fa-check"></i>
+                </div>
+                Este es mi trabajo actual.
+              </div>
+            </div>
+            <label>Sector profesional: <em>*</em></label>
+            <select class="form-control" formControlName="sector">
+              <option *ngFor="let sector of sectors" [value]="sector.id">{{ sector.sector }}</option>
+            </select>
+          </div>
+        </form>
+        <hr/>
+        <div class="form-group relative">
+          <label>Actividades realizadas: <em>*</em></label>
+          <div class="label-group m-t-xs m-b-xs">
+            <span class="label label-success m-r-xs m-b-xs" *ngFor="let activity of activities">{{ activity.activity }}
+              <i class="fa fa-times label-closer" (click)="removeActivity(activity)"></i>
+            </span>
+          </div>
+          <div class="relative m-b-sm">
+            <input #activityfield type="text" class="form-control m-t-xs">
+            <button type="button" class="btn btn-primary input-add" (click)="addActivity(activityfield.value)">
+              <i class="fa fa-plus"></i>&nbsp;
+              Añadir
+            </button>
+          </div>
+          <div class="alert alert-info" role="alert" *ngIf="activities.length == 0">
+            <p>Especifique al menos una actividad desarrollada en este trabajo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" [disabled]="!formGroup.valid || activities.length == 0" (click)="saveJob()">Guardar cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+

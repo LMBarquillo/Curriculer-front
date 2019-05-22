@@ -1,0 +1,52 @@
+<div class="loginColumns animated fadeInDown">
+  <div class="row">
+    <div class="col-md-6">
+      <img class="logo" src="assets/images/logo.png" alt="Curriculer logo"/>
+      <h2 class="font-bold">Tu presentación digital</h2>
+      <p>Diseña tu curriculum y envía el enlace para que lo vean online. Sin imprimir, sin adjuntar. Tu curriculum a la vista de un click!.</p>
+      <p>No volverás a reenviar tras cada actualización, porque tu enlace será siempre el mismo. Tu presentación laboral siempre al día.</p>
+    </div>
+    <div class="col-md-6">
+      <div class="ibox-content">
+        <p class="m-t">
+          <small>Bienvenido de nuevo, identifícate.</small>
+        </p>
+        <form [formGroup]="loginForm" class="m-t" role="form">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Usuario" required="" formControlName="user"
+                   [ngClass]="{'invalid': !loginForm.controls['user'].valid && validateForms}">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Contraseña" required="" formControlName="pass"
+                   [ngClass]="{'invalid': !loginForm.controls['pass'].valid && validateForms}">
+          </div>
+          <button type="submit" class="btn btn-primary block full-width m-b" (click)="doLogin()">
+            Entrar
+          </button>
+
+          <div class="alert alert-danger" role="alert" *ngIf="badLogin">
+            Usuario o contraseña incorrectos
+          </div>
+
+<!--          <a href="#">
+            <small>Olvidaste tu contraseña?</small>
+          </a>-->
+
+          <p class="text-muted text-center">
+            <small>¿Aún no tienes cuenta?</small>
+          </p>
+          <a class="btn btn-sm btn-white btn-block" [routerLink]="['/register']">Regístrate</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="row">
+    <div class="col-md-6">
+      Luis M. Barquillo Romero - Proyecto Fin de Grado
+    </div>
+    <div class="col-md-6 text-right">
+      <small>DAW 2018-2019</small>
+    </div>
+  </div>
+</div>
