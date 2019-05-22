@@ -74,7 +74,7 @@ export class UserhomeComponent implements OnInit {
             city: new FormControl(this.userData.city),
             phone: new FormControl(this.userData.phone, [Validators.required, CustomValidators.isIntegerNumber]),
             email: new FormControl(this.userData.email, [Validators.required, CustomValidators.isValidEmail]),
-            nationality: new FormControl(this.userData.nationality),
+            nationality: new FormControl(this.userData.nationality, Validators.required),
             birthdate: new FormControl(this.userData.birthdate ? this.dateToForm(this.userData.birthdate) : "", CustomValidators.isValidDate)
           }
         );
