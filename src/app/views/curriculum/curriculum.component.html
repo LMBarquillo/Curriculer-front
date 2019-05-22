@@ -178,3 +178,20 @@
     </div>
   </div>
 </div>
+
+<div class="container papersheet animated fadeInDown" *ngIf="!curriculum && notFound">
+  <div class="row m-t-md">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4 calign">
+      <a [routerLink]="['/']">
+        <img class="full-width" src="assets/images/logo.png" alt="Curriculer logo" />
+      </a>
+    </div>
+  </div>
+  <div class="row m-t-md">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 calign">
+      <h2>¡Oh, vaya!</h2>
+      <h4>No hemos encontrado el curriculum que buscas</h4>
+      <p>Puedes <a [routerLink]="['/']">volver al inicio</a> o probar a introducir el enlace correcto de nuevo.</p>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e8bb2f3c-0842-46d6-89ba-00e1f23245ef" name="Default Changelist" comment="Versión 0.1.0 (No deja poner solo 2 cifras ¬¬)">
+    <list default="true" id="e8bb2f3c-0842-46d6-89ba-00e1f23245ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.ts" afterDir="false" />
@@ -78,42 +78,60 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="61" />
+          <entry key="HTML" value="62" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="10" />
           <entry key="Markdown" value="3" />
           <entry key="SCSS" value="31" />
-          <entry key="TypeScript" value="209" />
+          <entry key="TypeScript" value="210" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="16065" />
+          <entry key="HTML" value="16372" />
           <entry key="JSON" value="83" />
           <entry key="Markdown" value="291" />
-          <entry key="PLAIN_TEXT" value="3993" />
+          <entry key="PLAIN_TEXT" value="4181" />
           <entry key="SCSS" value="2470" />
-          <entry key="TypeScript" value="28291" />
+          <entry key="TypeScript" value="28576" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
-              <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+            <state relative-caret-position="220">
+              <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/views/login/login.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+            <state relative-caret-position="274">
+              <caret line="183" column="65" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="617">
+              <caret line="75" column="58" lean-forward="true" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -181,15 +199,15 @@
         <option value="$PROJECT_DIR$/src/app/services/curriculum.service.ts" />
         <option value="$PROJECT_DIR$/src/app/models/user.model.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/utilities.utils.ts" />
-        <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" />
         <option value="$PROJECT_DIR$/src/app/utiles/functions.utils.ts" />
         <option value="$PROJECT_DIR$/src/styles.scss" />
         <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.html" />
         <option value="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.scss" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html" />
+        <option value="$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts" />
         <option value="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html" />
       </list>
     </option>
   </component>
@@ -242,7 +260,37 @@
               <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
               <item name="FRONT" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="userhome" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FRONT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FRONT" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -347,20 +395,6 @@
       <workItem from="1558368242552" duration="9864000" />
       <workItem from="1558455054576" duration="8424000" />
       <workItem from="1558542246516" duration="332000" />
-    </task>
-    <task id="LOCAL-00014" summary="Añadido sistema para cambiar la fotografía del usuario">
-      <created>1556129843889</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1556129843889</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Formateada foto para que no se deforme">
-      <created>1556130294190</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1556130294190</updated>
     </task>
     <task id="LOCAL-00016" summary="Creado servicio para los Trainings">
       <created>1556212806298</created>
@@ -691,11 +725,25 @@
       <option name="project" value="LOCAL" />
       <updated>1558543064603</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Ocultar cabeceras e información en el curriculum cuando los valores son nulos o vacios.">
+      <created>1558544271582</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1558544271582</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Establecer nacionalidad como campo requerido en el formulario de los datos de usuario.">
+      <created>1558545588675</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1558545588675</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="153903000" />
+    <option name="totallyTimeSpent" value="155883000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -710,7 +758,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16044776" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -719,7 +767,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.324295" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.324295" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -787,8 +835,6 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Añadido aviso si no se han introducido actividades y desconectado el botón de guardar." />
-    <MESSAGE value="Añadido checkbox personalizado para el fin de experiencia laboral y select con los sectores laborales." />
     <MESSAGE value="Solucionada la movida con los distintos formatos de fecha (me cago en los yankis)" />
     <MESSAGE value="Finalizado comprobaciones con los datepickers del modal del trabajo." />
     <MESSAGE value="Finalizada sección de Experiencia laboral." />
@@ -812,7 +858,9 @@
     <MESSAGE value="Añadidos enlaces en el home y en la página del curriculum" />
     <MESSAGE value="Retocado CSS en el curriculum para formato móvil" />
     <MESSAGE value="Versión 0.1.0 (No deja poner solo 2 cifras ¬¬)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versión 0.1.0 (No deja poner solo 2 cifras ¬¬)" />
+    <MESSAGE value="Ocultar cabeceras e información en el curriculum cuando los valores son nulos o vacios." />
+    <MESSAGE value="Establecer nacionalidad como campo requerido en el formulario de los datos de usuario." />
+    <option name="LAST_COMMIT_MESSAGE" value="Establecer nacionalidad como campo requerido en el formulario de los datos de usuario." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -977,13 +1025,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/login/login.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/languages/languages.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1130,16 +1171,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="120" column="23" selection-start-line="120" selection-start-column="23" selection-end-line="120" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/utiles/utilities.utils.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -1161,17 +1192,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/views/userhome/userhome.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="48" selection-start-line="21" selection-start-column="48" selection-end-line="21" selection-end-column="48" />
+        <state relative-caret-position="617">
+          <caret line="75" column="58" lean-forward="true" selection-start-line="75" selection-start-column="58" selection-end-line="75" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="220">
+          <caret line="45" column="23" selection-start-line="45" selection-start-column="23" selection-end-line="45" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/login/login.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="14" column="34" lean-forward="true" selection-start-line="14" selection-start-column="34" selection-end-line="14" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/views/curriculum/curriculum.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="183" column="65" selection-start-line="183" selection-start-column="65" selection-end-line="183" selection-end-column="65" />
         </state>
       </provider>
     </entry>
