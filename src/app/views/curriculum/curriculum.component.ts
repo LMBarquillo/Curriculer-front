@@ -5,6 +5,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {Swal} from '../../utiles/swal.utils';
 import {Utilities} from '../../utiles/utilities.utils';
 import {Formats} from '../../utiles/formats.utils';
+import {ErrorModel} from '../../models/error.model';
+
+const NOT_FOUND: number = 404;
 
 @Component({
   selector: 'app-curriculum',
@@ -13,6 +16,7 @@ import {Formats} from '../../utiles/formats.utils';
 })
 export class CurriculumComponent implements AfterViewInit {
   public curriculum: GlobalModel;
+  public notFound: boolean = false;
 
   constructor(private curriculumService: CurriculumService,
               private activatedRoute: ActivatedRoute,
@@ -36,7 +40,14 @@ export class CurriculumComponent implements AfterViewInit {
         this.curriculum = ok;
         Swal.close();
       }, err => {
-        Swal.buildSwalWithoutCancel('Error', Utilities.getErrorDetails(err).error, 'error');
+        let details: ErrorModel = Utilities.getErrorDetails(err);
+        console.log(details);
+        if (details.code == NOT_FOUND) {
+          Swal.close();
+          this.notFound = true;
+        } else {
+          Swal.buildSwalWithoutCancel('Error', details.error, 'error');
+        }
       }
     );
   }
